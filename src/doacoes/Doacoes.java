@@ -1,7 +1,9 @@
 package doacoes;
+import View.app;
 
 public class Doacoes {
     public static void main(String[] args) {
-        // TODO code application logic here
+        app tela = new app();
+        tela.setVisible(true);
     }
 }
