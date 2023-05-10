@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luan_/Documents/Luan/Programação/APS/3S/Doacoes/src/doacoes/Doacoes.java</file>
             <file>file:/C:/Users/luan_/Documents/Luan/Programação/APS/3S/Doacoes/src/View/app.java</file>
             <file>file:/C:/Users/luan_/Documents/Luan/Programação/APS/3S/Doacoes/src/View/doacao.java</file>
+            <file>file:/C:/Users/luan_/Documents/Luan/Programação/APS/3S/Doacoes/src/Model/Doacoes.java</file>
+            <file>file:/C:/Users/luan_/Documents/Luan/Programação/APS/3S/Doacoes/src/Controller/SQLiteConnection.java</file>
             <file>file:/C:/Users/luan_/Documents/Luan/Programação/APS/3S/Doacoes/src/View/receptor.java</file>
         </group>
     </open-files>

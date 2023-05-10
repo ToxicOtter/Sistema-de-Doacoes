@@ -23,9 +23,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                      <Component id="emailText" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="cnpjLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                      <Component id="cnpjText" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" attributes="0">
                       <Component id="telefoneLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
@@ -52,11 +69,6 @@
                       <Component id="numeroText" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="sobrenomeLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                      <Component id="sobrenomeText" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
                       <Component id="nomeLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
                       <Component id="nomeText" min="-2" max="-2" attributes="0"/>
@@ -72,14 +84,12 @@
                       <Component id="logradouroText" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="147" max="32767" attributes="0"/>
+              <EmptySpace pref="145" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Component id="submitButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,8 +108,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="sobrenomeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="sobrenomeText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cnpjLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cnpjText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -136,7 +146,14 @@
                   <Component id="qtdCestaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="qtdCestaText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="emailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="emailText" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="submitButton" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -148,24 +165,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomeText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="sobrenomeText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="sobrenomeLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Sobrenome"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="cepText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cepLabel">
       <Properties>
@@ -178,9 +179,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="logradouroText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="logradouroTextActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="numeroLabel">
       <Properties>
@@ -188,9 +189,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="numeroText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="bairroLabel">
       <Properties>
@@ -198,9 +196,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="bairroText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="ufLabel">
       <Properties>
@@ -208,18 +203,12 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ufText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="qtdCestaText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="qtdCestaLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Quantidade de cestas"/>
+        <Property name="text" type="java.lang.String" value="Quantidade de pessoas"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="telefoneLabel">
@@ -228,9 +217,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="telefoneText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="telefoneTextActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
@@ -246,6 +235,28 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton2MouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cnpjLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CNPJ"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cnpjText">
+    </Component>
+    <Component class="javax.swing.JLabel" name="emailLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="E-mail"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="emailText">
+    </Component>
+    <Component class="javax.swing.JButton" name="submitButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Enviar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="submitButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
