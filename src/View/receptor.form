@@ -49,9 +49,9 @@
                       <Component id="telefoneText" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="qtdCestaLabel" min="-2" max="-2" attributes="0"/>
+                      <Component id="qtdPessoasLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                      <Component id="qtdCestaText" min="-2" max="-2" attributes="0"/>
+                      <Component id="qtdPessoasText" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="ufLabel" min="-2" max="-2" attributes="0"/>
@@ -143,8 +143,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="qtdCestaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="qtdCestaText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="qtdPessoasLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="qtdPessoasText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -204,9 +204,9 @@
     </Component>
     <Component class="javax.swing.JTextField" name="ufText">
     </Component>
-    <Component class="javax.swing.JTextField" name="qtdCestaText">
+    <Component class="javax.swing.JTextField" name="qtdPessoasText">
     </Component>
-    <Component class="javax.swing.JLabel" name="qtdCestaLabel">
+    <Component class="javax.swing.JLabel" name="qtdPessoasLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Quantidade de pessoas"/>
       </Properties>

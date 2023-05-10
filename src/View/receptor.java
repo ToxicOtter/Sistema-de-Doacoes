@@ -21,8 +21,8 @@ public class receptor extends javax.swing.JFrame {
         bairroText = new javax.swing.JTextField();
         ufLabel = new javax.swing.JLabel();
         ufText = new javax.swing.JTextField();
-        qtdCestaText = new javax.swing.JTextField();
-        qtdCestaLabel = new javax.swing.JLabel();
+        qtdPessoasText = new javax.swing.JTextField();
+        qtdPessoasLabel = new javax.swing.JLabel();
         telefoneLabel = new javax.swing.JLabel();
         telefoneText = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -53,7 +53,7 @@ public class receptor extends javax.swing.JFrame {
 
         ufLabel.setText("UF");
 
-        qtdCestaLabel.setText("Quantidade de pessoas");
+        qtdPessoasLabel.setText("Quantidade de pessoas");
 
         telefoneLabel.setText("Telefone");
 
@@ -114,9 +114,9 @@ public class receptor extends javax.swing.JFrame {
                         .addGap(147, 147, 147)
                         .addComponent(telefoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(qtdCestaLabel)
+                        .addComponent(qtdPessoasLabel)
                         .addGap(147, 147, 147)
-                        .addComponent(qtdCestaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(qtdPessoasText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ufLabel)
                         .addGap(147, 147, 147)
@@ -188,8 +188,8 @@ public class receptor extends javax.swing.JFrame {
                     .addComponent(telefoneText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtdCestaLabel)
-                    .addComponent(qtdCestaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(qtdPessoasLabel)
+                    .addComponent(qtdPessoasText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel)
@@ -220,7 +220,16 @@ public class receptor extends javax.swing.JFrame {
     }//GEN-LAST:event_telefoneTextActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        //aqui
+        nomeText.getText();
+        cnpjText.getText();
+        cepText.getText();
+        logradouroText.getText();
+        numeroText.getText();
+        bairroText.getText();
+        ufText.getText();
+        telefoneText.getText();
+        qtdPessoasText.getText();
+        emailText.getText();
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**
@@ -275,8 +284,8 @@ public class receptor extends javax.swing.JFrame {
     private javax.swing.JTextField nomeText;
     private javax.swing.JLabel numeroLabel;
     private javax.swing.JTextField numeroText;
-    private javax.swing.JLabel qtdCestaLabel;
-    private javax.swing.JTextField qtdCestaText;
+    private javax.swing.JLabel qtdPessoasLabel;
+    private javax.swing.JTextField qtdPessoasText;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel telefoneLabel;
     private javax.swing.JTextField telefoneText;
