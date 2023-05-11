@@ -1,4 +1,8 @@
 package View;
+import Controller.Destinatario;
+import Controller.SQLiteConnection;
+import java.util.HashSet;
+import java.util.Set;
 
 public class receptor extends javax.swing.JFrame {
     public receptor() {
@@ -37,10 +41,15 @@ public class receptor extends javax.swing.JFrame {
 
         nomeLabel.setText("Nome");
 
+        nomeText.setText("Nome");
+
+        cepText.setText("CEP");
+
         cepLabel.setText("CEP");
 
         logradouroLabel.setText("Logradouro");
 
+        logradouroText.setText("Logradouro");
         logradouroText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logradouroTextActionPerformed(evt);
@@ -49,14 +58,28 @@ public class receptor extends javax.swing.JFrame {
 
         numeroLabel.setText("Número");
 
+        numeroText.setText("Número");
+
         bairroLabel.setText("Bairro");
 
+        bairroText.setText("Bairro");
+
         ufLabel.setText("UF");
+
+        ufText.setText("UF");
+        ufText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ufTextActionPerformed(evt);
+            }
+        });
+
+        qtdPessoasText.setText("Qtd");
 
         qtdPessoasLabel.setText("Quantidade de pessoas");
 
         telefoneLabel.setText("Telefone");
 
+        telefoneText.setText("Telefone");
         telefoneText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telefoneTextActionPerformed(evt);
@@ -79,7 +102,11 @@ public class receptor extends javax.swing.JFrame {
 
         cnpjLabel.setText("CNPJ");
 
+        cnpjText.setText("CNPJ");
+
         emailLabel.setText("E-mail");
+
+        emailText.setText("Email");
 
         submitButton.setText("Enviar");
         submitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -220,17 +247,26 @@ public class receptor extends javax.swing.JFrame {
     }//GEN-LAST:event_telefoneTextActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        nomeText.getText();
-        cnpjText.getText();
-        cepText.getText();
-        logradouroText.getText();
-        numeroText.getText();
-        bairroText.getText();
-        ufText.getText();
-        telefoneText.getText();
-        qtdPessoasText.getText();
-        emailText.getText();
+        Destinatario dtn = new Destinatario();
+        
+        dtn.setNome(nomeText.getText());
+        dtn.setCNPJ(Integer.parseInt(cnpjText.getText()));
+        dtn.setCep(Integer.parseInt(cepText.getText()));
+        dtn.setLogradouro(logradouroText.getText());
+        dtn.setNumero(Integer.parseInt(numeroText.getText()));
+        dtn.setBairro(bairroText.getText());
+        dtn.setUf(ufText.getText());
+        dtn.setTelefone(Integer.parseInt(telefoneText.getText()));
+        dtn.setQtdPessoas(Integer.parseInt(qtdPessoasText.getText()));
+        dtn.setEmail(emailText.getText());
+        
+        SQLiteConnection cnAbrigo = new SQLiteConnection();
+        cnAbrigo.insert(dtn);
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void ufTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ufTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ufTextActionPerformed
 
     /**
      * @param args the command line arguments

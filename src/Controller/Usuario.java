@@ -8,10 +8,12 @@ public abstract class Usuario {
     private int telefone;
     private String senha;
     private String email;
-    private String cep;
-    private String rua;
-    private String numero;
+    private int cep;
+    private String logradouro;
+    private int numero;
     private String complemento;
+    private String bairro;
+    private String uf;
     
     // getters e setters
     public String getNome() {
@@ -46,27 +48,27 @@ public abstract class Usuario {
         this.email = email;
     }
     
-    public String getCep() {
+    public int getCep() {
         return cep;
     }
     
-    public void setCep(String cep) {
+    public void setCep(int cep) {
         this.cep = cep;
     }
     
-    public String getRua() {
-        return rua;
+    public String getLogradouro() {
+        return logradouro;
     }
     
-    public void setRua(String rua) {
-        this.rua = rua;
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
     
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
     
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
     
@@ -76,6 +78,22 @@ public abstract class Usuario {
     
     public void setComplemento(String complemento) {
         this.complemento = complemento;
+    }
+    
+    public String getBairro(){
+        return bairro;
+    }
+    
+    public void setBairro(String bairro){
+        this.bairro = bairro;
+    }
+    
+    public String getUf(){
+        return uf;
+    }
+    
+    public void setUf(String uf){
+        this.uf = uf;
     }
     
     // métodos
