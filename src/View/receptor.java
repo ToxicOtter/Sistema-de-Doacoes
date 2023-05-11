@@ -1,8 +1,7 @@
 package View;
 import Controller.Destinatario;
 import Controller.SQLiteConnection;
-import java.util.HashSet;
-import java.util.Set;
+import java.awt.Color;
 
 public class receptor extends javax.swing.JFrame {
     public receptor() {
@@ -36,6 +35,7 @@ public class receptor extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         emailText = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
+        retornoLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,18 +115,20 @@ public class receptor extends javax.swing.JFrame {
             }
         });
 
+        retornoLabel.setText("x");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(21, 21, 21))
             .addGroup(layout.createSequentialGroup()
-                .addGap(186, 186, 186)
+                .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(emailLabel)
@@ -168,11 +170,16 @@ public class receptor extends javax.swing.JFrame {
                         .addComponent(logradouroLabel)
                         .addGap(147, 147, 147)
                         .addComponent(logradouroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(145, Short.MAX_VALUE))
+                .addContainerGap(191, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(submitButton)
-                .addGap(268, 268, 268))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(submitButton)
+                        .addGap(268, 268, 268))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(retornoLabel)
+                        .addGap(294, 294, 294))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +188,7 @@ public class receptor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(69, 69, 69)
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nomeLabel)
                     .addComponent(nomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,7 +228,9 @@ public class receptor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(emailLabel)
                     .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addGap(35, 35, 35)
+                .addComponent(retornoLabel)
+                .addGap(18, 18, 18)
                 .addComponent(submitButton)
                 .addGap(18, 18, 18))
         );
@@ -261,7 +270,17 @@ public class receptor extends javax.swing.JFrame {
         dtn.setEmail(emailText.getText());
         
         SQLiteConnection cnAbrigo = new SQLiteConnection();
-        cnAbrigo.insert(dtn);
+        String res = cnAbrigo.insert(dtn);
+        
+        if (res == "Done"){
+            retornoLabel.setText("Cadastro realizado com sucesso!");
+            retornoLabel.setForeground(Color.GREEN);
+            retornoLabel.setVisible(true);
+        } else {
+            retornoLabel.setText("Erro interno, tente mais tarde!");
+            retornoLabel.setForeground(Color.RED);
+            retornoLabel.setVisible(true);
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void ufTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ufTextActionPerformed
@@ -322,6 +341,7 @@ public class receptor extends javax.swing.JFrame {
     private javax.swing.JTextField numeroText;
     private javax.swing.JLabel qtdPessoasLabel;
     private javax.swing.JTextField qtdPessoasText;
+    private javax.swing.JLabel retornoLabel;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel telefoneLabel;
     private javax.swing.JTextField telefoneText;

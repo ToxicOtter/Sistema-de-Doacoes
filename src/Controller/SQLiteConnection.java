@@ -18,7 +18,7 @@ public class SQLiteConnection {
         return connection;
     }
     
-    public void insert(Destinatario dest){
+    public String insert(Destinatario dest){
         String sql = "INSERT INTO Abrigo (nome_abrigo, cnpj_abrigo, telefone_abrigo, email_abrigo,quant_pessoas_abrigo,cep_abrigo,log_abrigo,num_abrigo,bairro_abrigo,uf_abrigo) VALUES(?,?,?,?,?,?,?,?,?,?)";
         
         try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -32,12 +32,12 @@ public class SQLiteConnection {
             pstmt.setInt(8, dest.getNumero());
             pstmt.setString(9, dest.getBairro());
             pstmt.setString(10, dest.getUf());
-            
             pstmt.executeUpdate();
+            
+            return "Done";
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+            return (e.getMessage());
         }
-        
-        
     }
 }
