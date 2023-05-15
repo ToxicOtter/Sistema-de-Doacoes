@@ -2,6 +2,7 @@ package View;
 import Controller.Destinatario;
 import Controller.SQLiteConnection;
 import java.awt.Color;
+import View.telaSucesso;
 
 public class receptor extends javax.swing.JFrame {
     public receptor() {
@@ -272,10 +273,18 @@ public class receptor extends javax.swing.JFrame {
         SQLiteConnection cnAbrigo = new SQLiteConnection();
         String res = cnAbrigo.insert(dtn);
         
-        if (res == "Done"){
+        /*if (res == "Done"){
             retornoLabel.setText("Cadastro realizado com sucesso!");
             retornoLabel.setForeground(Color.GREEN);
             retornoLabel.setVisible(true);
+        } else {
+            retornoLabel.setText("Erro interno, tente mais tarde!");
+            retornoLabel.setForeground(Color.RED);
+            retornoLabel.setVisible(true);
+        }*/
+        if (res == "Done"){
+            telaSucesso sucess = new telaSucesso();
+            sucess.setVisible(true);
         } else {
             retornoLabel.setText("Erro interno, tente mais tarde!");
             retornoLabel.setForeground(Color.RED);
