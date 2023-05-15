@@ -271,17 +271,8 @@ public class receptor extends javax.swing.JFrame {
         dtn.setEmail(emailText.getText());
         
         SQLiteConnection cnAbrigo = new SQLiteConnection();
-        String res = cnAbrigo.insert(dtn);
+        String res = cnAbrigo.insertAbrigo(dtn);
         
-        /*if (res == "Done"){
-            retornoLabel.setText("Cadastro realizado com sucesso!");
-            retornoLabel.setForeground(Color.GREEN);
-            retornoLabel.setVisible(true);
-        } else {
-            retornoLabel.setText("Erro interno, tente mais tarde!");
-            retornoLabel.setForeground(Color.RED);
-            retornoLabel.setVisible(true);
-        }*/
         if (res == "Done"){
             telaSucesso sucess = new telaSucesso();
             sucess.setVisible(true);

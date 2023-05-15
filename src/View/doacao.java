@@ -51,6 +51,7 @@ public class doacao extends javax.swing.JFrame {
         emailLabel = new javax.swing.JLabel();
         emailText = new javax.swing.JTextField();
         pessoaComboBox = new javax.swing.JComboBox<>();
+        cpfCnpjText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,6 +170,8 @@ public class doacao extends javax.swing.JFrame {
 
         pessoaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Física", "Jurídica" }));
 
+        cpfCnpjText.setText("jTextField1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -270,7 +273,9 @@ public class doacao extends javax.swing.JFrame {
                                 .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pessoaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pessoaComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpfCnpjText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(85, 85, 85))
         );
         layout.setVerticalGroup(
@@ -283,7 +288,9 @@ public class doacao extends javax.swing.JFrame {
                             .addComponent(jButton1)
                             .addComponent(jButton2))
                         .addGap(100, 100, 100)
-                        .addComponent(pessoaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pessoaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cpfCnpjText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -404,10 +411,20 @@ public class doacao extends javax.swing.JFrame {
         doador.setUf(ufText.getText());
         doador.setTelefone(Integer.parseInt(telefoneText.getText()));
         doador.setEmail(emailText.getText());
+        doador.setCpfCnpj(Integer.parseInt(cpfCnpjText.getText()));
         if (pessoaComboBox.getSelectedItem() == "Física"){
             doador.setTipoDoador(true);
         } else {
             doador.setTipoDoador(false);
+        }
+        
+        SQLiteConnection cnDoador = new SQLiteConnection();
+        String res = cnDoador.insertDoador(doador);
+        
+        if (res == "Done"){
+            System.out.println("Foi");
+        } else {
+            System.out.println("Erro interno, tente mais tarde!");
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
@@ -459,6 +476,7 @@ public class doacao extends javax.swing.JFrame {
     private javax.swing.JTextField cafeText;
     private javax.swing.JLabel cepLabel;
     private javax.swing.JTextField cepText;
+    private javax.swing.JTextField cpfCnpjText;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailText;
     private javax.swing.JLabel farinhaLabel;

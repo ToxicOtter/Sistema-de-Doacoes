@@ -6,7 +6,7 @@ public class Doador extends Usuario {
     private int cpfCnpj;
     
     // getters e setters adicionais
-    public boolean isTipoDoador() {
+    public boolean getTipoDoador() {
         return tipoDoador;
     }
     
