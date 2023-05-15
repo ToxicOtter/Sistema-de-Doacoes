@@ -79,4 +79,26 @@ public class SQLiteConnection {
             }
         }
     }
+    public String insertEstoque(Estoque estoque){
+        String sqlEstoque = "INSERT INTO Estoque (mov_estoque, qtd_arroz_estoque, qtd_feijao_estoque, qtd_cafe_estoque, qtd_sal_estoque, qtd_macarrao_estoque,qtd_oleo_estoque, qtd_acucar_estoque,qtd_biscoito_estoque, data_mov_estoque) VALUES(?,?,?,?,?,?,?,?,?,?)";
+        
+        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlEstoque)) {
+            pstmt.setString(1, estoque.getMovimento());
+            pstmt.setInt(2, estoque.getQtdArroz());
+            pstmt.setInt(3, estoque.getQtdFeijao());
+            pstmt.setInt(4, estoque.getQtdCafe());
+            pstmt.setInt(5, estoque.getQtdSal());
+            pstmt.setInt(6, estoque.getQtdMacarrao());
+            pstmt.setInt(7, estoque.getQtdOleo());
+            pstmt.setInt(8, estoque.getQtdAcucar());
+            pstmt.setInt(9, estoque.getQtdBiscoito());
+            pstmt.setString(10, estoque.getData());
+            pstmt.executeUpdate();
+            
+            return "Done";
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return (e.getMessage());
+        }
+    }
 }

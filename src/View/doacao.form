@@ -45,17 +45,10 @@
                                   <Component id="feijaoText" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="farinhaText" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="farinhaLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="218" pref="218" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="macarraoLabel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                                  <Component id="macarraoText" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="macarraoLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                              <Component id="macarraoText" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="332" max="32767" attributes="0"/>
@@ -246,11 +239,7 @@
                           <Component id="macarraoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="macarraoText" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="farinhaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="farinhaText" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace pref="129" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -272,10 +261,9 @@
                           <Component id="biscoitoText" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="biscoitoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <EmptySpace pref="123" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="101" max="32767" attributes="0"/>
               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -319,16 +307,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="macarraoText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="farinhaLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Farinha"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="farinhaText">
       <Properties>
         <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>

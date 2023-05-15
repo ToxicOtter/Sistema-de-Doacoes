@@ -1,6 +1,9 @@
 package View;
 import Controller.Doador;
+import Controller.Estoque;
 import Controller.SQLiteConnection;
+
+import java.util.Date;
 
 public class doacao extends javax.swing.JFrame {
     public doacao() {
@@ -19,8 +22,6 @@ public class doacao extends javax.swing.JFrame {
         feijaoText = new javax.swing.JTextField();
         macarraoLabel = new javax.swing.JLabel();
         macarraoText = new javax.swing.JTextField();
-        farinhaLabel = new javax.swing.JLabel();
-        farinhaText = new javax.swing.JTextField();
         cafeText = new javax.swing.JTextField();
         cafeLabel = new javax.swing.JLabel();
         oleoLabel = new javax.swing.JLabel();
@@ -70,10 +71,6 @@ public class doacao extends javax.swing.JFrame {
         macarraoLabel.setText("Macarrao");
 
         macarraoText.setText("jTextField1");
-
-        farinhaLabel.setText("Farinha");
-
-        farinhaText.setText("jTextField1");
 
         cafeText.setText("jTextField1");
 
@@ -194,15 +191,10 @@ public class doacao extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(arrozText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(feijaoText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(farinhaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(farinhaLabel)
-                                    .addGap(218, 218, 218))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(macarraoLabel)
-                                    .addGap(147, 147, 147)
-                                    .addComponent(macarraoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(macarraoLabel)
+                                .addGap(147, 147, 147)
+                                .addComponent(macarraoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 332, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
@@ -346,10 +338,7 @@ public class doacao extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(macarraoLabel)
                             .addComponent(macarraoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(farinhaLabel)
-                            .addComponent(farinhaText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cafeLabel)
@@ -366,8 +355,7 @@ public class doacao extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(biscoitoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(biscoitoLabel))
-                        .addGap(12, 12, 12)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)))
                 .addComponent(jButton3)
                 .addContainerGap())
         );
@@ -402,6 +390,8 @@ public class doacao extends javax.swing.JFrame {
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         Doador doador = new Doador();
+        Estoque estoque = new Estoque();
+        Date d = new Date();
         
         doador.setNome(nomeText.getText());
         doador.setCep(Integer.parseInt(cepText.getText()));
@@ -423,6 +413,25 @@ public class doacao extends javax.swing.JFrame {
         
         if (res == "Done"){
             System.out.println("Foi");
+        } else {
+            System.out.println("Erro interno, tente mais tarde!");
+        }
+        
+        estoque.setMovimento("Entrada");
+        estoque.setQtdArroz(Integer.parseInt(arrozText.getText()));
+        estoque.setQtdFeijao(Integer.parseInt(feijaoText.getText()));
+        estoque.setQtdCafe(Integer.parseInt(cafeText.getText()));
+        estoque.setQtdSal(Integer.parseInt(salText.getText()));
+        estoque.setQtdMacarrao(Integer.parseInt(macarraoText.getText()));
+        estoque.setQtdOleo(Integer.parseInt(oleoText.getText()));
+        estoque.setQtdAcucar(Integer.parseInt(acucarText.getText()));
+        estoque.setQtdBiscoito(Integer.parseInt(biscoitoText.getText()));
+        estoque.setData("Preciso vonverte a data");
+        
+        String resEstoque = cnDoador.insertEstoque(estoque);
+        
+        if (resEstoque == "Done"){
+            System.out.println("Foi estoque");
         } else {
             System.out.println("Erro interno, tente mais tarde!");
         }
@@ -479,8 +488,6 @@ public class doacao extends javax.swing.JFrame {
     private javax.swing.JTextField cpfCnpjText;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailText;
-    private javax.swing.JLabel farinhaLabel;
-    private javax.swing.JTextField farinhaText;
     private javax.swing.JLabel feijaoLabel;
     private javax.swing.JTextField feijaoText;
     private javax.swing.JButton jButton1;
