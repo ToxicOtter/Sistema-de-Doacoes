@@ -101,4 +101,11 @@ public class SQLiteConnection {
             return (e.getMessage());
         }
     }
+    public int[] qtdEstoque(){
+        int[] nome = new int[2];
+        nome[0] = 0;
+        nome[1] = 1;
+        System.out.println(nome);
+        return nome;
+    }
 }
