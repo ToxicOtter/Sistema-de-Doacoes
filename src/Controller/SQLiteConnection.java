@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 public class SQLiteConnection {
     private Connection connect(){
@@ -102,10 +104,23 @@ public class SQLiteConnection {
         }
     }
     public int[] qtdEstoque(){
-        int[] nome = new int[2];
-        nome[0] = 0;
-        nome[1] = 1;
-        System.out.println(nome);
-        return nome;
+        int[] qtd = new int[8];
+        String sqlQtdEstoque = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Entrada'";
+        
+        try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sqlQtdEstoque)){
+            while(rs.next()){
+                qtd[0] = rs.getInt("arroz");
+                qtd[1] = rs.getInt("feijao");
+                qtd[2] = rs.getInt("cafe");
+                qtd[3] = rs.getInt("sal");
+                qtd[4] = rs.getInt("macarrao");
+                qtd[5] = rs.getInt("oleo");
+                qtd[6] = rs.getInt("acucar");
+                qtd[7] = rs.getInt("biscoito");
+            }
+        } catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return qtd;
     }
 }
