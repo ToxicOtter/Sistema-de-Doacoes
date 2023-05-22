@@ -105,22 +105,39 @@ public class SQLiteConnection {
     }
     public int[] qtdEstoque(){
         int[] qtd = new int[8];
-        String sqlQtdEstoque = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Entrada'";
+        String sqlQtdEntrada = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Entrada'";
+        String sqlQtdSaida = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Saida'";
         
-        try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(sqlQtdEstoque)){
-            while(rs.next()){
-                qtd[0] = rs.getInt("arroz");
-                qtd[1] = rs.getInt("feijao");
-                qtd[2] = rs.getInt("cafe");
-                qtd[3] = rs.getInt("sal");
-                qtd[4] = rs.getInt("macarrao");
-                qtd[5] = rs.getInt("oleo");
-                qtd[6] = rs.getInt("acucar");
-                qtd[7] = rs.getInt("biscoito");
+        try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rsEntrada = stmt.executeQuery(sqlQtdEntrada)){
+            while(rsEntrada.next()){
+                qtd[0] = rsEntrada.getInt("arroz");
+                qtd[1] = rsEntrada.getInt("feijao");
+                qtd[2] = rsEntrada.getInt("cafe");
+                qtd[3] = rsEntrada.getInt("sal");
+                qtd[4] = rsEntrada.getInt("macarrao");
+                qtd[5] = rsEntrada.getInt("oleo");
+                qtd[6] = rsEntrada.getInt("acucar");
+                qtd[7] = rsEntrada.getInt("biscoito");
             }
         } catch(SQLException e) {
             System.out.println(e.getMessage());
         }
+        
+        try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rsSaida = stmt.executeQuery(sqlQtdSaida)){
+            while(rsSaida.next()){
+                qtd[0] = qtd[0] - rsSaida.getInt("arroz");
+                qtd[1] = qtd[1] - rsSaida.getInt("feijao");
+                qtd[2] = qtd[2] - rsSaida.getInt("cafe");
+                qtd[3] = qtd[3] - rsSaida.getInt("sal");
+                qtd[4] = qtd[4] - rsSaida.getInt("macarrao");
+                qtd[5] = qtd[5] - rsSaida.getInt("oleo");
+                qtd[6] = qtd[6] - rsSaida.getInt("acucar");
+                qtd[7] = qtd[7] - rsSaida.getInt("biscoito");
+            }
+        } catch(SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
         return qtd;
     }
 }
