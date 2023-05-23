@@ -84,28 +84,24 @@
                       <Component id="emailLabel" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="emailText" pref="193" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="logradouroText" alignment="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="2" attributes="0">
                           <Component id="cpfCnpjText" alignment="2" min="-2" pref="145" max="-2" attributes="0"/>
-                          <Component id="emailText" alignment="2" min="-2" pref="145" max="-2" attributes="0"/>
-                          <Component id="ufText" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="bairroText" alignment="2" min="-2" pref="89" max="-2" attributes="0"/>
-                          <Component id="numeroText" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="logradouroText" alignment="2" min="-2" pref="145" max="-2" attributes="0"/>
-                          <Component id="sobrenomeText" alignment="2" min="-2" max="-2" attributes="0"/>
-                          <Component id="nomeText" alignment="2" min="-2" max="-2" attributes="0"/>
                           <Component id="cepText" alignment="2" min="-2" pref="103" max="-2" attributes="0"/>
+                          <Component id="ufText" alignment="2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="telefoneText" min="-2" pref="193" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="telefoneText" pref="193" max="32767" attributes="0"/>
+                      <Component id="bairroText" max="32767" attributes="0"/>
+                      <Component id="numeroText" max="32767" attributes="0"/>
+                      <Component id="sobrenomeText" max="32767" attributes="0"/>
+                      <Component id="nomeText" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -117,7 +113,7 @@
                   <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="67" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="nomeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="nomeText" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -167,7 +163,7 @@
                   <Component id="pessoaComboBox" min="-2" max="-2" attributes="0"/>
                   <Component id="cpfCnpjText" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+              <EmptySpace pref="65" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -315,14 +311,8 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomeText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="sobrenomeText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="sobrenomeLabel">
       <Properties>
@@ -341,7 +331,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="logradouroText">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="numeroLabel">
@@ -351,7 +341,8 @@
     </Component>
     <Component class="javax.swing.JTextField" name="numeroText">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="text" type="java.lang.String" value="0"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="bairroLabel">
@@ -361,17 +352,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="bairroText">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="ufLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="UF"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="ufText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="telefoneLabel">
@@ -410,9 +396,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailText">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="pessoaComboBox">
       <Properties>
@@ -448,6 +431,45 @@
           <Format format="(##)#####-####" subtype="-1" type="5"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="ufText">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="27">
+            <StringItem index="0" value="AC"/>
+            <StringItem index="1" value="AL"/>
+            <StringItem index="2" value="AM"/>
+            <StringItem index="3" value="AP"/>
+            <StringItem index="4" value="BA"/>
+            <StringItem index="5" value="CE"/>
+            <StringItem index="6" value="DF"/>
+            <StringItem index="7" value="ES"/>
+            <StringItem index="8" value="GO"/>
+            <StringItem index="9" value="MA"/>
+            <StringItem index="10" value="MG"/>
+            <StringItem index="11" value="MS"/>
+            <StringItem index="12" value="MT"/>
+            <StringItem index="13" value="PA"/>
+            <StringItem index="14" value="PB"/>
+            <StringItem index="15" value="PE"/>
+            <StringItem index="16" value="PI"/>
+            <StringItem index="17" value="PR"/>
+            <StringItem index="18" value="RJ"/>
+            <StringItem index="19" value="RN"/>
+            <StringItem index="20" value="RO"/>
+            <StringItem index="21" value="RR"/>
+            <StringItem index="22" value="RS"/>
+            <StringItem index="23" value="SC"/>
+            <StringItem index="24" value="SE"/>
+            <StringItem index="25" value="SP"/>
+            <StringItem index="26" value="TO"/>
+          </StringArray>
+        </Property>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
