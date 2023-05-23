@@ -26,7 +26,7 @@ public class SQLiteConnection {
         try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlAbrigo)) {
             pstmt.setString(1, dest.getNome());
             pstmt.setInt(2, dest.getCNPJ());
-            pstmt.setInt(3, dest.getTelefone());
+            pstmt.setLong(3, dest.getTelefone());
             pstmt.setString(4, dest.getEmail());
             pstmt.setInt(5, dest.getQtdPessoas());
             pstmt.setInt(6, dest.getCep());
@@ -47,7 +47,7 @@ public class SQLiteConnection {
             String sqlDoador = "INSERT INTO Doador (nome_doador, telefone_doador, email_doador,cep_doador,log_doador,num_doador,bairro_doador,uf_doador,cpf_doador) VALUES(?,?,?,?,?,?,?,?,?)";
             try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlDoador)) {
                 pstmt.setString(1, doador.getNome());
-                pstmt.setInt(2, doador.getTelefone());               
+                pstmt.setLong(2, doador.getTelefone());               
                 pstmt.setString(3, doador.getEmail());
                 pstmt.setInt(4, doador.getCep());
                 pstmt.setString(5, doador.getLogradouro());
@@ -65,7 +65,7 @@ public class SQLiteConnection {
             String sqlDoador = "INSERT INTO Doador (nome_doador, telefone_doador, email_doador,cep_doador,log_doador,num_doador,bairro_doador,uf_doador,cnpj_doador) VALUES(?,?,?,?,?,?,?,?,?)";
             try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlDoador)) {
                 pstmt.setString(1, doador.getNome());
-                pstmt.setInt(2, doador.getTelefone());               
+                pstmt.setLong(2, doador.getTelefone());               
                 pstmt.setString(3, doador.getEmail());
                 pstmt.setInt(4, doador.getCep());
                 pstmt.setString(5, doador.getLogradouro());

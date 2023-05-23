@@ -3,7 +3,7 @@ package Controller;
 public abstract class Usuario {
     // atributos
     private String nome;
-    private int telefone;
+    private long telefone;
     private String senha;
     private String email;
     private int cep;
@@ -22,11 +22,11 @@ public abstract class Usuario {
         this.nome = nome;
     }
     
-    public int getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
     
-    public void setTelefone(int telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
     

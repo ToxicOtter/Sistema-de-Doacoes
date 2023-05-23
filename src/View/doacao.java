@@ -5,6 +5,13 @@ import Controller.SQLiteConnection;
 
 import java.util.Date;
 
+//import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+
 public class doacao extends javax.swing.JFrame {
     public doacao() {
         initComponents();
@@ -34,7 +41,6 @@ public class doacao extends javax.swing.JFrame {
         nomeText = new javax.swing.JTextField();
         sobrenomeText = new javax.swing.JTextField();
         sobrenomeLabel = new javax.swing.JLabel();
-        cepText = new javax.swing.JTextField();
         cepLabel = new javax.swing.JLabel();
         logradouroLabel = new javax.swing.JLabel();
         logradouroText = new javax.swing.JTextField();
@@ -45,7 +51,6 @@ public class doacao extends javax.swing.JFrame {
         ufLabel = new javax.swing.JLabel();
         ufText = new javax.swing.JTextField();
         telefoneLabel = new javax.swing.JLabel();
-        telefoneText = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -53,6 +58,8 @@ public class doacao extends javax.swing.JFrame {
         emailText = new javax.swing.JTextField();
         pessoaComboBox = new javax.swing.JComboBox<>();
         cpfCnpjText = new javax.swing.JTextField();
+        cepText = new javax.swing.JFormattedTextField();
+        telefoneText = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -111,8 +118,6 @@ public class doacao extends javax.swing.JFrame {
 
         sobrenomeLabel.setText("Sobrenome");
 
-        cepText.setText("jTextField1");
-
         cepLabel.setText("CEP");
 
         logradouroLabel.setText("Logradouro");
@@ -132,8 +137,6 @@ public class doacao extends javax.swing.JFrame {
         ufText.setText("jTextField1");
 
         telefoneLabel.setText("Telefone");
-
-        telefoneText.setText("jTextField1");
 
         jButton1.setText("Voltar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,6 +171,23 @@ public class doacao extends javax.swing.JFrame {
         pessoaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Física", "Jurídica" }));
 
         cpfCnpjText.setText("jTextField1");
+
+        try {
+            cepText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        cepText.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                cepTextFocusLost(evt);
+            }
+        });
+
+        try {
+            telefoneText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -224,19 +244,24 @@ public class doacao extends javax.swing.JFrame {
                         .addComponent(logradouroLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(pessoaComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(emailLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
-                .addGap(147, 147, 147)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(cpfCnpjText, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ufText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bairroText, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numeroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logradouroText, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cepText, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sobrenomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(246, 246, 246))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(cpfCnpjText, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emailText, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ufText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bairroText, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(numeroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(logradouroText, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sobrenomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cepText, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(122, 122, 122))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(telefoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,12 +383,12 @@ public class doacao extends javax.swing.JFrame {
         Date d = new Date();
         
         doador.setNome(nomeText.getText());
-        doador.setCep(Integer.parseInt(cepText.getText()));
+        doador.setCep(Integer.parseInt((cepText.getText()).replaceAll("-","")));
         doador.setLogradouro(logradouroText.getText());
         doador.setNumero(Integer.parseInt(numeroText.getText()));
         doador.setBairro(bairroText.getText());
         doador.setUf(ufText.getText());
-        doador.setTelefone(Integer.parseInt(telefoneText.getText()));
+        doador.setTelefone(Long.parseLong((telefoneText.getText()).replaceAll("[()-]", "")));
         doador.setEmail(emailText.getText());
         doador.setCpfCnpj(Integer.parseInt(cpfCnpjText.getText()));
         if (pessoaComboBox.getSelectedItem() == "Física"){
@@ -399,7 +424,12 @@ public class doacao extends javax.swing.JFrame {
         } else {
             System.out.println("Erro interno, tente mais tarde!");
         }
+        System.out.println(doador.getTelefone());
     }//GEN-LAST:event_jButton3MouseClicked
+
+    private void cepTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cepTextFocusLost
+        
+    }//GEN-LAST:event_cepTextFocusLost
 
     /**
      * @param args the command line arguments
@@ -448,7 +478,7 @@ public class doacao extends javax.swing.JFrame {
     private javax.swing.JLabel cafeLabel;
     private javax.swing.JTextField cafeText;
     private javax.swing.JLabel cepLabel;
-    private javax.swing.JTextField cepText;
+    private javax.swing.JFormattedTextField cepText;
     private javax.swing.JTextField cpfCnpjText;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailText;
@@ -473,7 +503,7 @@ public class doacao extends javax.swing.JFrame {
     private javax.swing.JLabel sobrenomeLabel;
     private javax.swing.JTextField sobrenomeText;
     private javax.swing.JLabel telefoneLabel;
-    private javax.swing.JTextField telefoneText;
+    private javax.swing.JFormattedTextField telefoneText;
     private javax.swing.JLabel ufLabel;
     private javax.swing.JTextField ufText;
     // End of variables declaration//GEN-END:variables
