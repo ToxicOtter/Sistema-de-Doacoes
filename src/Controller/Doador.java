@@ -3,7 +3,7 @@ package Controller;
 public class Doador extends Usuario {
     // atributos adicionais
     private boolean tipoDoador;
-    private int cpfCnpj;
+    private long cpfCnpj;
     
     // getters e setters adicionais
     public boolean getTipoDoador() {
@@ -14,11 +14,11 @@ public class Doador extends Usuario {
         this.tipoDoador = tipoDoador;
     }
     
-    public int getCpfCnpj() {
+    public long getCpfCnpj() {
         return cpfCnpj;
     }
     
-    public void setCpfCnpj(int cpfCnpj) {
+    public void setCpfCnpj(long cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
     }
     

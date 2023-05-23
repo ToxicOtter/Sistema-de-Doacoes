@@ -2,7 +2,7 @@ package Controller;
 
 public class Destinatario extends Usuario {
     int qtdPessoas;
-    int CNPJ;
+    long CNPJ;
     
     public int getQtdPessoas(){
         return qtdPessoas;
@@ -11,10 +11,10 @@ public class Destinatario extends Usuario {
         this.qtdPessoas = qtdPessoas;
     }
     
-    public int getCNPJ(){
+    public long getCNPJ(){
         return CNPJ;
     }
-    public void setCNPJ(int CNPJ){
+    public void setCNPJ(long CNPJ){
         this.CNPJ = CNPJ;
     }
 }

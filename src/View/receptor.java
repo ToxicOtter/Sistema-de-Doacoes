@@ -8,6 +8,7 @@ import View.telaSucesso;
 public class receptor extends javax.swing.JFrame {
     public receptor() {
         initComponents();
+        retornoLabel.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -24,13 +25,11 @@ public class receptor extends javax.swing.JFrame {
         bairroLabel = new javax.swing.JLabel();
         bairroText = new javax.swing.JTextField();
         ufLabel = new javax.swing.JLabel();
-        qtdPessoasText = new javax.swing.JTextField();
         qtdPessoasLabel = new javax.swing.JLabel();
         telefoneLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         cnpjLabel = new javax.swing.JLabel();
-        cnpjText = new javax.swing.JTextField();
         emailLabel = new javax.swing.JLabel();
         emailText = new javax.swing.JTextField();
         submitButton = new javax.swing.JButton();
@@ -38,6 +37,8 @@ public class receptor extends javax.swing.JFrame {
         cepText = new javax.swing.JFormattedTextField();
         ufText = new javax.swing.JComboBox<>();
         telefoneText = new javax.swing.JFormattedTextField();
+        cnpjText = new javax.swing.JFormattedTextField();
+        qtdPessoasText = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,71 +117,22 @@ public class receptor extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        try {
+            cnpjText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        try {
+            qtdPessoasText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(21, 21, 21))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cnpjLabel)
-                                .addGap(147, 147, 147)
-                                .addComponent(cnpjText))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nomeLabel)
-                                .addGap(147, 147, 147)
-                                .addComponent(nomeText))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(numeroLabel)
-                                    .addComponent(logradouroLabel))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(129, 129, 129)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(logradouroText)
-                                            .addComponent(emailText)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(numeroText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(79, 79, 79)))))
-                        .addGap(112, 112, 112))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(qtdPessoasLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bairroLabel)
-                            .addComponent(emailLabel))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(125, 125, 125)
-                                .addComponent(qtdPessoasText, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(101, 101, 101)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(telefoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bairroText, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(158, 158, 158))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(telefoneLabel)
-                            .addComponent(ufLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ufText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(196, 196, 196))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cepLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cepText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(177, 177, 177))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +141,71 @@ public class receptor extends javax.swing.JFrame {
                         .addGap(268, 268, 268))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(retornoLabel)
-                        .addGap(294, 294, 294))))
+                        .addGap(232, 232, 232))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cnpjLabel)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(nomeLabel)
+                                        .addGap(147, 147, 147)
+                                        .addComponent(nomeText))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(numeroLabel)
+                                            .addComponent(logradouroLabel))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(129, 129, 129)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(logradouroText)
+                                                    .addComponent(emailText)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(numeroText, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(79, 79, 79)))))
+                                .addGap(112, 112, 112))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(qtdPessoasLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(bairroLabel)
+                                    .addComponent(emailLabel))
+                                .addGap(101, 101, 101)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(bairroText, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(qtdPessoasText, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(telefoneText, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(158, 158, 158))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(telefoneLabel)
+                                    .addComponent(ufLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ufText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(196, 196, 196))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(cnpjText, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cepLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(cepText, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(156, 156, 156))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
+                .addGap(21, 21, 21))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,7 +226,7 @@ public class receptor extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cepLabel)
                     .addComponent(cepText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(logradouroLabel)
                     .addComponent(logradouroText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -262,28 +278,33 @@ public class receptor extends javax.swing.JFrame {
     }//GEN-LAST:event_logradouroTextActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        Destinatario dtn = new Destinatario();
+        if (emailText.getText().contains("@")){
+            Destinatario dtn = new Destinatario();
         
-        dtn.setNome(nomeText.getText());
-        dtn.setCNPJ(Integer.parseInt(cnpjText.getText()));
-        dtn.setCep(Integer.parseInt(cepText.getText()));
-        dtn.setLogradouro(logradouroText.getText());
-        dtn.setNumero(Integer.parseInt(numeroText.getText()));
-        dtn.setBairro(bairroText.getText());
-        dtn.setUf(ufText.getSelectedItem().toString());
-        dtn.setTelefone(Long.parseLong((telefoneText.getText()).replaceAll("[()-]", "")));
-        dtn.setQtdPessoas(Integer.parseInt(qtdPessoasText.getText()));
-        dtn.setEmail(emailText.getText());
+            dtn.setNome(nomeText.getText());
+            dtn.setCNPJ(Long.parseLong((cnpjText.getText()).replaceAll("[./-]", "")));
+            dtn.setCep(Integer.parseInt(cepText.getText()));
+            dtn.setLogradouro(logradouroText.getText());
+            dtn.setNumero(Integer.parseInt(numeroText.getText()));
+            dtn.setBairro(bairroText.getText());
+            dtn.setUf(ufText.getSelectedItem().toString());
+            dtn.setTelefone(Long.parseLong((telefoneText.getText()).replaceAll("[()-]", "")));
+            dtn.setQtdPessoas(Integer.parseInt(qtdPessoasText.getText()));
+            dtn.setEmail(emailText.getText());
         
-        SQLiteConnection cnAbrigo = new SQLiteConnection();
-        String res = cnAbrigo.insertAbrigo(dtn);
+            SQLiteConnection cnAbrigo = new SQLiteConnection();
+            String res = cnAbrigo.insertAbrigo(dtn);
         
-        if (res == "Done"){
-            telaSucesso sucess = new telaSucesso();
-            sucess.setVisible(true);
-        } else {
-            retornoLabel.setText("Erro interno, tente mais tarde!");
-            retornoLabel.setForeground(Color.RED);
+            if (res == "Done"){
+                telaSucesso sucess = new telaSucesso();
+                sucess.setVisible(true);
+            } else {
+                retornoLabel.setText("Erro interno, tente mais tarde!");
+                retornoLabel.setForeground(Color.RED);
+                retornoLabel.setVisible(true);
+            }
+        }else {
+            retornoLabel.setText("E-mail inválido. Faça as alterações e tente novamente.");
             retornoLabel.setVisible(true);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
@@ -346,7 +367,7 @@ public class receptor extends javax.swing.JFrame {
     private javax.swing.JLabel cepLabel;
     private javax.swing.JFormattedTextField cepText;
     private javax.swing.JLabel cnpjLabel;
-    private javax.swing.JTextField cnpjText;
+    private javax.swing.JFormattedTextField cnpjText;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailText;
     private javax.swing.JButton jButton1;
@@ -358,7 +379,7 @@ public class receptor extends javax.swing.JFrame {
     private javax.swing.JLabel numeroLabel;
     private javax.swing.JTextField numeroText;
     private javax.swing.JLabel qtdPessoasLabel;
-    private javax.swing.JTextField qtdPessoasText;
+    private javax.swing.JFormattedTextField qtdPessoasText;
     private javax.swing.JLabel retornoLabel;
     private javax.swing.JButton submitButton;
     private javax.swing.JLabel telefoneLabel;

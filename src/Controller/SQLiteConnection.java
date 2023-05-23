@@ -25,7 +25,7 @@ public class SQLiteConnection {
         
         try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlAbrigo)) {
             pstmt.setString(1, dest.getNome());
-            pstmt.setInt(2, dest.getCNPJ());
+            pstmt.setLong(2, dest.getCNPJ());
             pstmt.setLong(3, dest.getTelefone());
             pstmt.setString(4, dest.getEmail());
             pstmt.setInt(5, dest.getQtdPessoas());
@@ -54,7 +54,7 @@ public class SQLiteConnection {
                 pstmt.setInt(6, doador.getNumero());
                 pstmt.setString(7, doador.getBairro());
                 pstmt.setString(8, doador.getUf());
-                pstmt.setInt(9, doador.getCpfCnpj());
+                pstmt.setLong(9, doador.getCpfCnpj());
                 pstmt.executeUpdate();
                 return "Done";
             } catch (SQLException e) {
@@ -72,7 +72,7 @@ public class SQLiteConnection {
                 pstmt.setInt(6, doador.getNumero());
                 pstmt.setString(7, doador.getBairro());
                 pstmt.setString(8, doador.getUf());
-                pstmt.setInt(9, doador.getCpfCnpj());
+                pstmt.setLong(9, doador.getCpfCnpj());
                 pstmt.executeUpdate();
                 return "Done";
             } catch (SQLException e) {
