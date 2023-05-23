@@ -36,14 +36,14 @@ public class app extends javax.swing.JFrame {
 
         jLabel1.setText("Doações");
 
-        jButton1.setText("Sou um doador");
+        jButton1.setText("Cadastrar doador");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
             }
         });
 
-        jButton2.setText("Sou um destinatário");
+        jButton2.setText("Cadastrar destinatário");
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton2MouseClicked(evt);
@@ -88,7 +88,7 @@ public class app extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jButton4)))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

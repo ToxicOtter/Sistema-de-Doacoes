@@ -1,7 +1,5 @@
 package Controller;
 
-
-
 public abstract class Usuario {
     // atributos
     private String nome;
