@@ -1,10 +1,10 @@
-#Sistema Gerenciador de Doações
+# Sistema Gerenciador de Doações
 
-##Instalação
+## Instalação
 
-##Como usar
+## Como usar
 
-##Autores
+## Autores
 - [@ToxicOtter](https://github.com/ToxicOtter)
 - [@IsaacKralik](https://github.com/IsaacKralik)
 - [@João](https://www.linkedin.com/in/joão-cardoso-769a531b9/)
