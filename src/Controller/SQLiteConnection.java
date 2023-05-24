@@ -8,6 +8,9 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 
 public class SQLiteConnection {
+    /*
+        Conexão no banco de dados
+    */
     private Connection connect(){
         String url = "jdbc:sqlite:APS_db.db";
         Connection connection = null;
@@ -20,6 +23,9 @@ public class SQLiteConnection {
         return connection;
     }
     
+    /*
+        Inserts
+    */
     public String insertAbrigo(Destinatario dest){
         String sqlAbrigo = "INSERT INTO Abrigo (nome_abrigo, cnpj_abrigo, telefone_abrigo, email_abrigo,quant_pessoas_abrigo,cep_abrigo,log_abrigo,num_abrigo,bairro_abrigo,uf_abrigo) VALUES(?,?,?,?,?,?,?,?,?,?)";
         
@@ -103,6 +109,10 @@ public class SQLiteConnection {
             return (e.getMessage());
         }
     }
+    
+    /*
+        Selects
+    */
     public int[] qtdEstoque(){
         int[] qtd = new int[8];
         String sqlQtdEntrada = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Entrada'";
