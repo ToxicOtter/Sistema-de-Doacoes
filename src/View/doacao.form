@@ -23,37 +23,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="macarraoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="feijaoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="arrozLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="salLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="2" attributes="0">
-                  <Component id="salText" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="arrozText" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="feijaoText" alignment="2" min="-2" max="-2" attributes="0"/>
-                  <Component id="macarraoText" alignment="2" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="86" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cafeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="oleoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="acucarLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Component id="biscoitoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="142" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cafeText" min="-2" max="-2" attributes="0"/>
-                  <Component id="oleoText" min="-2" max="-2" attributes="0"/>
-                  <Component id="acucarText" min="-2" max="-2" attributes="0"/>
-                  <Component id="biscoitoText" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="186" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -117,6 +86,44 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="macarraoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="feijaoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="arrozLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="salLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="2" attributes="0">
+                                  <Component id="arrozText" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="feijaoText" alignment="2" min="-2" max="-2" attributes="0"/>
+                                  <Component id="macarraoText" alignment="2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="salText" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="86" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cafeLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="oleoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="acucarLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="biscoitoLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="142" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="cafeText" min="-2" max="-2" attributes="0"/>
+                          <Component id="oleoText" min="-2" max="-2" attributes="0"/>
+                          <Component id="acucarText" min="-2" max="-2" attributes="0"/>
+                          <Component id="biscoitoText" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <Component id="jButton2" min="-2" max="-2" attributes="0"/>

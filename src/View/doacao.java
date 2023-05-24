@@ -217,32 +217,6 @@ public class doacao extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(118, 118, 118)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(macarraoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(feijaoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(arrozLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(salLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(147, 147, 147)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(salText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(arrozText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(feijaoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(macarraoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cafeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(oleoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(acucarLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(biscoitoLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cafeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(oleoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(acucarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(biscoitoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(186, 186, 186))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(413, 413, 413)
@@ -291,7 +265,37 @@ public class doacao extends javax.swing.JFrame {
                                 .addComponent(cpfText, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cnpjText, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(84, 84, 84)))
+                        .addGap(84, 84, 84))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(118, 118, 118)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(macarraoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(feijaoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(arrozLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(salLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(147, 147, 147)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(arrozText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(feijaoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(macarraoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(salText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cafeLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(oleoLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(acucarLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(biscoitoLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cafeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(oleoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(acucarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(biscoitoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76)))
                 .addComponent(jButton2)
                 .addGap(38, 38, 38))
         );
@@ -435,14 +439,14 @@ public class doacao extends javax.swing.JFrame {
             }
         
             estoque.setMovimento("Entrada");
-            estoque.setQtdArroz(Integer.parseInt(arrozText.getText()));
-            estoque.setQtdFeijao(Integer.parseInt(feijaoText.getText()));
-            estoque.setQtdCafe(Integer.parseInt(cafeText.getText()));
-            estoque.setQtdSal(Integer.parseInt(salText.getText()));
-            estoque.setQtdMacarrao(Integer.parseInt(macarraoText.getText()));
-            estoque.setQtdOleo(Integer.parseInt(oleoText.getText()));
-            estoque.setQtdAcucar(Integer.parseInt(acucarText.getText()));
-            estoque.setQtdBiscoito(Integer.parseInt(biscoitoText.getText()));
+            estoque.setQtdArroz(Integer.parseInt(arrozText.getText().trim()));
+            estoque.setQtdFeijao(Integer.parseInt(feijaoText.getText().trim()));
+            estoque.setQtdCafe(Integer.parseInt(cafeText.getText().trim()));
+            estoque.setQtdSal(Integer.parseInt(salText.getText().trim()));
+            estoque.setQtdMacarrao(Integer.parseInt(macarraoText.getText().trim()));
+            estoque.setQtdOleo(Integer.parseInt(oleoText.getText().trim()));
+            estoque.setQtdAcucar(Integer.parseInt(acucarText.getText().trim()));
+            estoque.setQtdBiscoito(Integer.parseInt(biscoitoText.getText().trim()));
             estoque.setData("Preciso vonverte a data");
         
             String resEstoque = cnDoador.insertEstoque(estoque);
