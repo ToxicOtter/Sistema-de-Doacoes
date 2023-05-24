@@ -2,6 +2,7 @@ package View;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +25,19 @@ public class alterar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table = new javax.swing.JTable();
+        nome_doador = new javax.swing.JTextField();
+        telefone_doador = new javax.swing.JTextField();
+        email_doador = new javax.swing.JTextField();
+        cep_doador = new javax.swing.JTextField();
+        log_doador = new javax.swing.JTextField();
+        num_doador = new javax.swing.JTextField();
+        bairro_doador = new javax.swing.JTextField();
+        uf_doador = new javax.swing.JTextField();
+        cnpj_doador = new javax.swing.JTextField();
+        cpf_doador = new javax.swing.JTextField();
+        deleteButton = new javax.swing.JButton();
+        updateButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -34,7 +47,7 @@ public class alterar extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doador", "Destinatário" }));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null, null},
@@ -45,7 +58,41 @@ public class alterar extends javax.swing.JFrame {
                 "cod_doador", "nome_doador", "telefone_doador", "email_doador", "cep_doador", "log_doador", "num_doador", "bairro_doador", "uf_doador", "cpf_doador", "cnpj_doador"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(table);
+
+        nome_doador.setText("jTextField1");
+
+        telefone_doador.setText("jTextField1");
+
+        email_doador.setText("jTextField1");
+
+        cep_doador.setText("jTextField1");
+
+        log_doador.setText("jTextField1");
+
+        num_doador.setText("jTextField1");
+
+        bairro_doador.setText("jTextField1");
+
+        uf_doador.setText("jTextField1");
+
+        cnpj_doador.setText("jTextField1");
+
+        cpf_doador.setText("jTextField1");
+
+        deleteButton.setText("Excluir");
+
+        updateButton.setText("Atualizar");
+        updateButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,7 +111,35 @@ public class alterar extends javax.swing.JFrame {
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(nome_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(telefone_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(num_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bairro_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(email_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(uf_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cep_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(log_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cnpj_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cpf_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(374, 374, 374)
+                        .addComponent(deleteButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateButton)))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -78,11 +153,82 @@ public class alterar extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(nome_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(telefone_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(num_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bairro_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uf_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cep_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cpf_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cnpj_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(log_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(deleteButton)
+                    .addComponent(updateButton))
+                .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
+        int row = table.getSelectedRow();
+        String selection = table.getModel().getValueAt(row,0).toString();
+        String sqlUpdate = "SELECT * FROM Doador WHERE cod_doador = " + selection;
+        try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rsSaida = stmt.executeQuery(sqlUpdate)){
+            while(rsSaida.next()){
+                nome_doador.setText(rsSaida.getString("nome_doador"));
+                telefone_doador.setText(Integer.toString(rsSaida.getInt("telefone_doador")));
+                email_doador.setText(rsSaida.getString("email_doador"));
+                cep_doador.setText(Integer.toString(rsSaida.getInt("cep_doador")));
+                log_doador.setText(rsSaida.getString("log_doador"));
+                num_doador.setText(Integer.toString(rsSaida.getInt("num_doador")));
+                bairro_doador.setText(rsSaida.getString("bairro_doador"));
+                uf_doador.setText(rsSaida.getString("uf_doador"));
+                cpf_doador.setText(Integer.toString(rsSaida.getInt("cpf_doador")));
+                cnpj_doador.setText(Integer.toString(rsSaida.getInt("cnpj_doador")));
+            }
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_tableMouseClicked
+
+    private void updateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateButtonMouseClicked
+        int row = table.getSelectedRow();
+        String selection = table.getModel().getValueAt(row,0).toString();
+        String sqlUpdate = "UPDATE Doador SET nome_doador = ?, telefone_doador = ?, email_doador = ?, cep_doador = ?, log_doador = ?, num_doador = ?, bairro_doador = ?, uf_doador = ?, cpf_doador = ?, cnpj_doador = ? WHERE cod_doador = " + selection;
+             try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+                pstmt.setString(1, nome_doador.getText());
+                pstmt.setLong(2, Long.parseLong(telefone_doador.getText()));               
+                pstmt.setString(3, email_doador.getText());
+                pstmt.setInt(4, Integer.parseInt(cep_doador.getText()));
+                pstmt.setString(5, log_doador.getText());
+                pstmt.setInt(6, Integer.parseInt(num_doador.getText()));
+                pstmt.setString(7, bairro_doador.getText());
+                pstmt.setString(8, uf_doador.getText());
+                pstmt.setLong(9, Long.parseLong(cpf_doador.getText()));
+                pstmt.setLong(10, Long.parseLong(cnpj_doador.getText()));
+                pstmt.executeUpdate();
+                select();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+    }//GEN-LAST:event_updateButtonMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -107,11 +253,13 @@ public class alterar extends javax.swing.JFrame {
     public void select(){
         String sqlSelect = "SELECT * FROM Doador";
         try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rsSaida = stmt.executeQuery(sqlSelect)){
-            jTable1.setModel(buildTableModel(rsSaida));
+            table.setModel(buildTableModel(rsSaida));
         } catch(SQLException e) {
             System.out.println(e.getMessage());
         }
     }
+    
+    
     
     public static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
         ResultSetMetaData metaData = rs.getMetaData();
@@ -138,10 +286,22 @@ public class alterar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField bairro_doador;
+    private javax.swing.JTextField cep_doador;
+    private javax.swing.JTextField cnpj_doador;
+    private javax.swing.JTextField cpf_doador;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField email_doador;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTextField log_doador;
+    private javax.swing.JTextField nome_doador;
+    private javax.swing.JTextField num_doador;
+    private javax.swing.JTable table;
+    private javax.swing.JTextField telefone_doador;
+    private javax.swing.JTextField uf_doador;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
