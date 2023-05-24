@@ -86,6 +86,11 @@ public class alterar extends javax.swing.JFrame {
         cpf_doador.setText("jTextField1");
 
         deleteButton.setText("Excluir");
+        deleteButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteButtonMouseClicked(evt);
+            }
+        });
 
         updateButton.setText("Atualizar");
         updateButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -210,25 +215,42 @@ public class alterar extends javax.swing.JFrame {
 
     private void updateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateButtonMouseClicked
         int row = table.getSelectedRow();
-        String selection = table.getModel().getValueAt(row,0).toString();
+        String selection = table.getModel().getValueAt(row, 0).toString();
         String sqlUpdate = "UPDATE Doador SET nome_doador = ?, telefone_doador = ?, email_doador = ?, cep_doador = ?, log_doador = ?, num_doador = ?, bairro_doador = ?, uf_doador = ?, cpf_doador = ?, cnpj_doador = ? WHERE cod_doador = " + selection;
-             try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
-                pstmt.setString(1, nome_doador.getText());
-                pstmt.setLong(2, Long.parseLong(telefone_doador.getText()));               
-                pstmt.setString(3, email_doador.getText());
-                pstmt.setInt(4, Integer.parseInt(cep_doador.getText()));
-                pstmt.setString(5, log_doador.getText());
-                pstmt.setInt(6, Integer.parseInt(num_doador.getText()));
-                pstmt.setString(7, bairro_doador.getText());
-                pstmt.setString(8, uf_doador.getText());
-                pstmt.setLong(9, Long.parseLong(cpf_doador.getText()));
-                pstmt.setLong(10, Long.parseLong(cnpj_doador.getText()));
-                pstmt.executeUpdate();
-                select();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
+        try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+            pstmt.setString(1, nome_doador.getText());
+            pstmt.setLong(2, Long.parseLong(telefone_doador.getText()));
+            pstmt.setString(3, email_doador.getText());
+            pstmt.setInt(4, Integer.parseInt(cep_doador.getText()));
+            pstmt.setString(5, log_doador.getText());
+            pstmt.setInt(6, Integer.parseInt(num_doador.getText()));
+            pstmt.setString(7, bairro_doador.getText());
+            pstmt.setString(8, uf_doador.getText());
+            pstmt.setLong(9, Long.parseLong(cpf_doador.getText()));
+            pstmt.setLong(10, Long.parseLong(cnpj_doador.getText()));
+            pstmt.executeUpdate();
+            select();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        
     }//GEN-LAST:event_updateButtonMouseClicked
+
+    private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
+        int row = table.getSelectedRow();
+        String selection = table.getModel().getValueAt(row, 0).toString();
+        String sqlDelete = "DELETE FROM Doador WHERE cod_doador = " + selection;
+        try {
+            Connection conn = this.connect();
+            PreparedStatement stmt = conn.prepareStatement(sqlDelete); 
+            //int rsSaida = stmt.executeUpdate(sqlDelete));
+            stmt.executeUpdate();
+            System.out.println("Deletado");
+            select();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }   
+    }//GEN-LAST:event_deleteButtonMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
