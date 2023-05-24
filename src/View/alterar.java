@@ -11,10 +11,19 @@ import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
 
 public class alterar extends javax.swing.JFrame {
-
+    private String tabela = "Doador";
+    
     public alterar() {
         initComponents();
         select();
+    }
+    
+    public void setTabela(String tabela){
+        this.tabela = tabela;
+    }
+    
+    public String getTabela(){
+        return tabela;
     }
 
     @SuppressWarnings("unchecked")
@@ -23,7 +32,7 @@ public class alterar extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        nomeTabela = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         table = new javax.swing.JTable();
         nome_doador = new javax.swing.JTextField();
@@ -45,7 +54,12 @@ public class alterar extends javax.swing.JFrame {
 
         jLabel2.setText("Alterar");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doador", "Destinatário" }));
+        nomeTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doador", "Destinatário", "Estoque", "Cestas", "Doação" }));
+        nomeTabela.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                nomeTabelaItemStateChanged(evt);
+            }
+        });
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -113,7 +127,7 @@ public class alterar extends javax.swing.JFrame {
                         .addGap(108, 108, 108)
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(nomeTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -155,7 +169,7 @@ public class alterar extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nomeTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,18 +253,62 @@ public class alterar extends javax.swing.JFrame {
     private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
         int row = table.getSelectedRow();
         String selection = table.getModel().getValueAt(row, 0).toString();
-        String sqlDelete = "DELETE FROM Doador WHERE cod_doador = " + selection;
+        String sqlDelete = "";
+        switch(getTabela()){
+            case "Abrigo":
+                sqlDelete = "DELETE FROM Abrigo WHERE cod_abrigo = " + selection;
+                break;
+            case "Doador":
+                sqlDelete = "DELETE FROM Doador WHERE cod_doador = " + selection;
+                break;
+            case "Estoque":
+                sqlDelete = "DELETE FROM Estoque WHERE cod_mov_estoque = " + selection;
+                break;
+            case "Cesta":
+                sqlDelete = "DELETE FROM Cesta WHERE cod_cesta = " + selection;
+                break;
+            case "Doacao":
+                sqlDelete = "DELETE FROM Doacao WHERE cod_doacao = " + selection;
+                break;
+            default:
+                System.out.println("Valor inesperado!");
+                break;
+        }
+        
         try {
             Connection conn = this.connect();
             PreparedStatement stmt = conn.prepareStatement(sqlDelete); 
-            //int rsSaida = stmt.executeUpdate(sqlDelete));
             stmt.executeUpdate();
-            System.out.println("Deletado");
             select();
         }catch(Exception e){
             System.out.println(e.getMessage());
-        }   
+        }
     }//GEN-LAST:event_deleteButtonMouseClicked
+
+    private void nomeTabelaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_nomeTabelaItemStateChanged
+        switch(String.valueOf(nomeTabela.getSelectedItem())){
+            case "Destinatário":
+                setTabela("Abrigo");
+                break;
+            case "Doador":
+                setTabela("Doador");
+                break;
+            case "Estoque":
+                setTabela("Estoque");
+                break;
+            case "Cestas":
+                setTabela("Cesta");
+                break;
+            case "Doação":
+                setTabela("Doacao");
+                break;
+            default:
+                System.out.println("Valor inesperado!");
+                break;
+        }
+        
+        select();
+    }//GEN-LAST:event_nomeTabelaItemStateChanged
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -273,15 +331,13 @@ public class alterar extends javax.swing.JFrame {
     }
     
     public void select(){
-        String sqlSelect = "SELECT * FROM Doador";
+        String sqlSelect = "SELECT * FROM " + getTabela();
         try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rsSaida = stmt.executeQuery(sqlSelect)){
             table.setModel(buildTableModel(rsSaida));
         } catch(SQLException e) {
             System.out.println(e.getMessage());
         }
     }
-    
-    
     
     public static DefaultTableModel buildTableModel(ResultSet rs) throws SQLException {
         ResultSetMetaData metaData = rs.getMetaData();
@@ -314,11 +370,11 @@ public class alterar extends javax.swing.JFrame {
     private javax.swing.JTextField cpf_doador;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField email_doador;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField log_doador;
+    private javax.swing.JComboBox<String> nomeTabela;
     private javax.swing.JTextField nome_doador;
     private javax.swing.JTextField num_doador;
     private javax.swing.JTable table;
