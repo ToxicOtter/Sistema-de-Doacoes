@@ -34,7 +34,9 @@ public class telaSucesso extends javax.swing.JFrame {
         voltarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("Sucesso");
 
         inicioButton.setText("Tela Inicial");

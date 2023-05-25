@@ -15,11 +15,14 @@ public class app extends javax.swing.JFrame {
         destButton = new javax.swing.JButton();
         relatorioButton = new javax.swing.JButton();
         voltarButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        alterarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(690, 450));
+        setResizable(false);
 
-        tituloLabel.setText("Doações");
+        tituloLabel.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        tituloLabel.setText("Gerenciador de Doações");
 
         doadorButton.setText("Cadastrar doador");
         doadorButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -49,10 +52,10 @@ public class app extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Alterar Dados");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        alterarButton.setText("Alterar Dados");
+        alterarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                alterarButtonMouseClicked(evt);
             }
         });
 
@@ -61,38 +64,39 @@ public class app extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(voltarButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
                         .addComponent(doadorButton)
                         .addGap(18, 18, 18)
                         .addComponent(destButton)
                         .addGap(18, 18, 18)
                         .addComponent(relatorioButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(alterarButton))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(368, 368, 368)
-                        .addComponent(tituloLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(voltarButton)))
-                .addContainerGap(176, Short.MAX_VALUE))
+                        .addGap(61, 61, 61)
+                        .addComponent(tituloLabel)))
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addComponent(voltarButton)
-                .addGap(46, 46, 46)
+                .addGap(72, 72, 72)
                 .addComponent(tituloLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
+                .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(doadorButton)
                     .addComponent(destButton)
                     .addComponent(relatorioButton)
-                    .addComponent(jButton1))
-                .addGap(156, 156, 156))
+                    .addComponent(alterarButton))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         pack();
@@ -100,12 +104,18 @@ public class app extends javax.swing.JFrame {
 
     private void doadorButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_doadorButtonMouseClicked
         this.setVisible(false);
-        new doacao().setVisible(true);
+        doacao doaTela = new doacao();
+        doaTela.pack();
+        doaTela.setLocationRelativeTo(null);
+        doaTela.setVisible(true);
     }//GEN-LAST:event_doadorButtonMouseClicked
 
     private void destButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_destButtonMouseClicked
         this.setVisible(false);
-        new receptor().setVisible(true);
+        receptor recTela = new receptor();
+        recTela.pack();
+        recTela.setLocationRelativeTo(null);
+        recTela.setVisible(true);
     }//GEN-LAST:event_destButtonMouseClicked
 
     private void voltarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_voltarButtonMouseClicked
@@ -114,26 +124,35 @@ public class app extends javax.swing.JFrame {
 
     private void relatorioButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_relatorioButtonMouseClicked
         this.setVisible(false);
-        new relatorio().setVisible(true);
+        relatorio relTela = new relatorio();
+        relTela.pack();
+        relTela.setLocationRelativeTo(null);
+        relTela.setVisible(true);
     }//GEN-LAST:event_relatorioButtonMouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void alterarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alterarButtonMouseClicked
         this.setVisible(false);
-        new alterar().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+        alterar altTela = new alterar();
+        altTela.pack();
+        altTela.setLocationRelativeTo(null);
+        altTela.setVisible(true);
+    }//GEN-LAST:event_alterarButtonMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new app().setVisible(true);
+                app tela = new app();
+                tela.pack();
+                tela.setLocationRelativeTo(null);
+                tela.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton alterarButton;
     private javax.swing.JButton destButton;
     private javax.swing.JButton doadorButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton relatorioButton;
     private javax.swing.JLabel tituloLabel;
     private javax.swing.JButton voltarButton;
