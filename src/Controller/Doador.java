@@ -21,10 +21,4 @@ public class Doador extends Usuario {
     public void setCpfCnpj(long cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
     }
-    
-    // método específico
-    public void fazDoacao() {
-        // implementação do método fazDoacao
-        // registra uma doação feita pelo doador
-    }
 }
