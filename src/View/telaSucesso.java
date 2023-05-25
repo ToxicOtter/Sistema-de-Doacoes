@@ -1,23 +1,41 @@
 package View;
-import View.receptor;
 import View.app;
 
 public class telaSucesso extends javax.swing.JFrame {
+    private String texto = "Sucesso!";
+    
+    public String getTexto(){
+        return texto;
+    }
+    public void setTexto(String texto){
+        this.texto = texto;
+    }
+    
     public telaSucesso() {
         initComponents();
+    }
+    
+    public telaSucesso(String texto) {
+        initComponents();
+        setTexto(texto);
+    }
+    
+    public void defineStatus(){
+        titleLabel.setText(getTexto());
     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
         inicioButton = new javax.swing.JButton();
         sairButton = new javax.swing.JButton();
+        voltarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Sucesso");
+        titleLabel.setText("Sucesso");
 
         inicioButton.setText("Tela Inicial");
         inicioButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -27,32 +45,46 @@ public class telaSucesso extends javax.swing.JFrame {
         });
 
         sairButton.setText("Sair");
+        sairButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sairButtonMouseClicked(evt);
+            }
+        });
+
+        voltarButton.setText("Voltar");
+        voltarButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                voltarButtonMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(inicioButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(sairButton)))
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addGap(175, 175, 175)
+                .addComponent(titleLabel)
+                .addContainerGap(183, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(voltarButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(inicioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sairButton)
+                .addGap(79, 79, 79))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(135, 135, 135)
-                .addComponent(jLabel1)
+                .addComponent(titleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(inicioButton)
-                    .addComponent(sairButton))
+                    .addComponent(sairButton)
+                    .addComponent(voltarButton))
                 .addContainerGap(114, Short.MAX_VALUE))
         );
 
@@ -64,6 +96,14 @@ public class telaSucesso extends javax.swing.JFrame {
         inicio.setVisible(true);
     }//GEN-LAST:event_inicioButtonMouseClicked
 
+    private void sairButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairButtonMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_sairButtonMouseClicked
+
+    private void voltarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_voltarButtonMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_voltarButtonMouseClicked
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -74,8 +114,9 @@ public class telaSucesso extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton inicioButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton sairButton;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 
 }

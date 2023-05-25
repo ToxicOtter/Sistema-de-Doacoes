@@ -9,12 +9,18 @@ import java.sql.Statement;
 import java.sql.ResultSetMetaData;
 import javax.swing.table.DefaultTableModel;
 import java.util.Vector;
+import View.telaSucesso;
 
 public class alterar extends javax.swing.JFrame {
     private String tabela = "Doador";
     
     public alterar() {
         initComponents();
+        destinatarioPanel.setVisible(false);
+        doadorPanel.setVisible(true);
+        estoquePanel.setVisible(false);
+        cestaPanel.setVisible(false);
+        doacaoPanel.setVisible(false);
         select();
     }
     
@@ -25,7 +31,7 @@ public class alterar extends javax.swing.JFrame {
     public String getTabela(){
         return tabela;
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -48,7 +54,6 @@ public class alterar extends javax.swing.JFrame {
         cpf_doador = new javax.swing.JFormattedTextField();
         cnpj_doador = new javax.swing.JFormattedTextField();
         uf_doador = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -58,17 +63,28 @@ public class alterar extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         destinatarioPanel = new javax.swing.JPanel();
         nome_abrigo = new javax.swing.JTextField();
         email_abrigo = new javax.swing.JTextField();
         quant_pessoas_abrigo = new javax.swing.JTextField();
-        cep_abrigo = new javax.swing.JTextField();
         log_abrigo = new javax.swing.JTextField();
         num_abrigo = new javax.swing.JTextField();
         bairro_abrigo = new javax.swing.JTextField();
-        uf_abrigo = new javax.swing.JTextField();
         cnpj_abrigo = new javax.swing.JFormattedTextField();
         telefone_abrigo = new javax.swing.JFormattedTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        cep_abrigo = new javax.swing.JFormattedTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        uf_abrigo = new javax.swing.JComboBox<>();
         cestaPanel = new javax.swing.JPanel();
         qtd_arroz_cesta = new javax.swing.JTextField();
         qtd_feijao_cesta = new javax.swing.JTextField();
@@ -78,6 +94,14 @@ public class alterar extends javax.swing.JFrame {
         qtd_oleo_cesta = new javax.swing.JTextField();
         qtd_acucar_cesta = new javax.swing.JTextField();
         qtd_biscoito_cesta = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
         estoquePanel = new javax.swing.JPanel();
         mov_estoque = new javax.swing.JTextField();
         qtd_arroz_estoque = new javax.swing.JTextField();
@@ -89,17 +113,33 @@ public class alterar extends javax.swing.JFrame {
         qtd_acucar_estoque = new javax.swing.JTextField();
         qtd_biscoito_estoque = new javax.swing.JTextField();
         data_mov_estoque = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         doacaoPanel = new javax.swing.JPanel();
         cod_doador = new javax.swing.JTextField();
         cod_cesta = new javax.swing.JTextField();
         cod_abrigo = new javax.swing.JTextField();
         data_doacao = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Alterar dados");
 
-        jLabel2.setText("Alterar");
+        jLabel2.setText("Tabela");
 
         nomeTabela.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Doador", "Destinatário", "Estoque", "Cestas", "Doação" }));
         nomeTabela.addItemListener(new java.awt.event.ItemListener() {
@@ -167,8 +207,6 @@ public class alterar extends javax.swing.JFrame {
 
         uf_doador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO" }));
 
-        jLabel3.setText("Nome");
-
         jLabel4.setText("Telefone");
 
         jLabel5.setText("Email");
@@ -187,6 +225,8 @@ public class alterar extends javax.swing.JFrame {
 
         jLabel12.setText("CNPJ");
 
+        jLabel13.setText("Nome");
+
         javax.swing.GroupLayout doadorPanelLayout = new javax.swing.GroupLayout(doadorPanel);
         doadorPanel.setLayout(doadorPanelLayout);
         doadorPanelLayout.setHorizontalGroup(
@@ -202,8 +242,8 @@ public class alterar extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(jLabel6)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel4))
                         .addGap(10, 10, 10)
                         .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(uf_doador, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -227,16 +267,14 @@ public class alterar extends javax.swing.JFrame {
         doadorPanelLayout.setVerticalGroup(
             doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(doadorPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                        .addComponent(jLabel3)
-                        .addComponent(nome_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(doadorPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jLabel4)
-                            .addComponent(telefone_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(6, 6, 6)
+                .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel13)
+                    .addComponent(nome_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel4)
+                    .addComponent(telefone_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel5)
@@ -269,24 +307,8 @@ public class alterar extends javax.swing.JFrame {
                 .addGroup(doadorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel12)
                     .addComponent(cnpj_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        nome_abrigo.setText("jTextField1");
-
-        email_abrigo.setText("jTextField1");
-
-        quant_pessoas_abrigo.setText("jTextField1");
-
-        cep_abrigo.setText("jTextField1");
-
-        log_abrigo.setText("jTextField1");
-
-        num_abrigo.setText("jTextField1");
-
-        bairro_abrigo.setText("jTextField1");
-
-        uf_abrigo.setText("jTextField1");
 
         try {
             cnpj_abrigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.###.###/####-##")));
@@ -300,298 +322,434 @@ public class alterar extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        jLabel3.setText("Nome");
+
+        jLabel14.setText("Telefone");
+
+        jLabel15.setText("CNPJ");
+
+        jLabel16.setText("Email");
+
+        jLabel17.setText("Qtd Pessoas");
+
+        try {
+            cep_abrigo.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel18.setText("Cep");
+
+        jLabel19.setText("Logradouro");
+
+        jLabel20.setText("Número");
+
+        jLabel22.setText("UF");
+
+        jLabel21.setText("Bairro");
+
+        uf_abrigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AM", "AP", "BA", "CE", "DF", "ES", "GO", "MA", "MG", "MS", "MT", "PA", "PB", "PE", "PI", "PR", "RJ", "RN", "RO", "RR", "RS", "SC", "SE", "SP", "TO" }));
+
         javax.swing.GroupLayout destinatarioPanelLayout = new javax.swing.GroupLayout(destinatarioPanel);
         destinatarioPanel.setLayout(destinatarioPanelLayout);
         destinatarioPanelLayout.setHorizontalGroup(
             destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(destinatarioPanelLayout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
                 .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(uf_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bairro_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(num_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(log_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cep_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(quant_pessoas_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nome_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(email_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nome_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(telefone_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(log_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bairro_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cnpj_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefone_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(email_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(num_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cep_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(uf_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(quant_pessoas_abrigo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         destinatarioPanelLayout.setVerticalGroup(
             destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(destinatarioPanelLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(nome_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel3)
+                    .addComponent(nome_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cnpj_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel15)
+                    .addComponent(cnpj_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(telefone_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel14)
+                    .addComponent(telefone_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(email_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel16)
+                    .addComponent(email_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(quant_pessoas_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel17)
+                    .addComponent(quant_pessoas_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cep_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel18)
+                    .addComponent(cep_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(log_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel19)
+                    .addComponent(log_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(num_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel20)
+                    .addComponent(num_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bairro_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(bairro_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(uf_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGroup(destinatarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(uf_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        qtd_arroz_cesta.setText("jTextField1");
+        jLabel33.setText("Arroz");
 
-        qtd_feijao_cesta.setText("jTextField1");
+        jLabel34.setText("Feijão");
 
-        qtd_cafe_cesta.setText("jTextField1");
+        jLabel35.setText("Café");
 
-        qtd_sal_cesta.setText("jTextField1");
+        jLabel36.setText("Sal");
 
-        qtd_macarrao_cesta.setText("jTextField1");
+        jLabel37.setText("Macarrão");
 
-        qtd_oleo_cesta.setText("jTextField1");
+        jLabel38.setText("Óleo");
 
-        qtd_acucar_cesta.setText("jTextField1");
+        jLabel39.setText("Açúcar");
 
-        qtd_biscoito_cesta.setText("jTextField1");
+        jLabel40.setText("Biscoito");
 
         javax.swing.GroupLayout cestaPanelLayout = new javax.swing.GroupLayout(cestaPanel);
         cestaPanel.setLayout(cestaPanelLayout);
         cestaPanelLayout.setHorizontalGroup(
             cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(cestaPanelLayout.createSequentialGroup()
-                .addGap(215, 215, 215)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cestaPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel38)
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(qtd_biscoito_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_acucar_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_oleo_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(qtd_macarrao_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(qtd_sal_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(qtd_cafe_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(cestaPanelLayout.createSequentialGroup()
-                        .addComponent(qtd_feijao_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(qtd_biscoito_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cestaPanelLayout.createSequentialGroup()
-                        .addComponent(qtd_arroz_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(qtd_acucar_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cestaPanelLayout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addComponent(qtd_oleo_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(qtd_feijao_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_arroz_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97))
         );
         cestaPanelLayout.setVerticalGroup(
             cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cestaPanelLayout.createSequentialGroup()
-                .addGap(159, 159, 159)
-                .addComponent(qtd_oleo_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel33)
+                    .addComponent(qtd_arroz_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtd_arroz_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel34)
+                    .addComponent(qtd_feijao_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel35)
+                    .addComponent(qtd_cafe_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel36)
+                    .addComponent(qtd_sal_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel37)
+                    .addComponent(qtd_macarrao_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(qtd_oleo_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel38))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel39)
                     .addComponent(qtd_acucar_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtd_feijao_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cestaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel40)
                     .addComponent(qtd_biscoito_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtd_cafe_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtd_sal_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtd_macarrao_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        mov_estoque.setText("jTextField1");
+        qtd_sal_estoque.setToolTipText("");
 
-        qtd_arroz_estoque.setText("jTextField1");
+        jLabel23.setText("Status");
 
-        qtd_feijao_estoque.setText("jTextField1");
+        jLabel24.setText("Arroz");
 
-        qtd_cafe_estoque.setText("jTextField1");
+        jLabel25.setText("Feijão");
 
-        qtd_sal_estoque.setText("jTextField1");
+        jLabel26.setText("Café");
 
-        qtd_macarrao_estoque.setText("jTextField1");
+        jLabel27.setText("Sal");
 
-        qtd_oleo_estoque.setText("jTextField1");
+        jLabel28.setText("Macarrão");
 
-        qtd_acucar_estoque.setText("jTextField1");
+        jLabel29.setText("Óleo");
 
-        qtd_biscoito_estoque.setText("jTextField1");
+        jLabel30.setText("Açúcar");
 
-        data_mov_estoque.setText("jTextField1");
+        jLabel31.setText("Biscoito");
+
+        jLabel32.setText("Data");
 
         javax.swing.GroupLayout estoquePanelLayout = new javax.swing.GroupLayout(estoquePanel);
         estoquePanel.setLayout(estoquePanelLayout);
         estoquePanelLayout.setHorizontalGroup(
             estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(estoquePanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(qtd_macarrao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(qtd_sal_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(estoquePanelLayout.createSequentialGroup()
-                        .addComponent(qtd_cafe_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(data_mov_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(estoquePanelLayout.createSequentialGroup()
-                        .addComponent(qtd_feijao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(qtd_biscoito_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(estoquePanelLayout.createSequentialGroup()
-                        .addComponent(qtd_arroz_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(qtd_acucar_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(estoquePanelLayout.createSequentialGroup()
-                        .addComponent(mov_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(qtd_oleo_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel31)
+                    .addComponent(jLabel32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(data_mov_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_biscoito_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_acucar_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_oleo_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_macarrao_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_sal_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_cafe_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_feijao_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtd_arroz_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(mov_estoque, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         estoquePanelLayout.setVerticalGroup(
             estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(estoquePanelLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mov_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel23)
+                    .addComponent(mov_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel24)
+                    .addComponent(qtd_arroz_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel25)
+                    .addComponent(qtd_feijao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel26)
+                    .addComponent(qtd_cafe_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel27)
+                    .addComponent(qtd_sal_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel28)
+                    .addComponent(qtd_macarrao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel29)
                     .addComponent(qtd_oleo_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtd_arroz_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel30)
                     .addComponent(qtd_acucar_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtd_feijao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel31)
                     .addComponent(qtd_biscoito_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtd_cafe_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(estoquePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel32)
                     .addComponent(data_mov_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtd_sal_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtd_macarrao_estoque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        cod_doador.setText("jTextField1");
+        jLabel41.setText("Doador");
 
-        cod_cesta.setText("jTextField1");
+        jLabel42.setText("Nº Cesta");
 
-        cod_abrigo.setText("jTextField1");
+        jLabel43.setText("Abrigo");
 
-        data_doacao.setText("jTextField1");
+        jLabel44.setText("Nº Doação");
 
         javax.swing.GroupLayout doacaoPanelLayout = new javax.swing.GroupLayout(doacaoPanel);
         doacaoPanel.setLayout(doacaoPanelLayout);
         doacaoPanelLayout.setHorizontalGroup(
             doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(doacaoPanelLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, doacaoPanelLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel41)
+                    .addComponent(jLabel42)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel44))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(data_doacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cod_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cod_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cod_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap())
         );
         doacaoPanelLayout.setVerticalGroup(
             doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(doacaoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(cod_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel41)
+                    .addComponent(cod_doador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cod_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel42)
+                    .addComponent(cod_cesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cod_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel43)
+                    .addComponent(cod_abrigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(data_doacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(doacaoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel44)
+                    .addComponent(data_doacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jButton1.setText("Sair");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
+        jButton2.setText("Voltar");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(84, 84, 84)
-                                .addComponent(jLabel2)
+                                .addGap(446, 446, 446)
+                                .addComponent(deleteButton)
                                 .addGap(18, 18, 18)
-                                .addComponent(nomeTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(doacaoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(183, 183, 183))
+                                .addComponent(updateButton))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(448, 448, 448)
+                                .addComponent(jLabel1))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(doadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(164, 164, 164)
-                                        .addComponent(deleteButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(updateButton))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(75, 75, 75)
-                                        .addComponent(destinatarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(191, 191, 191)
-                                        .addComponent(estoquePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 902, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addComponent(doadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(destinatarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(estoquePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cestaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(doacaoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(nomeTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(430, 430, 430))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cestaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(111, 111, 111))))
+                        .addComponent(jButton1)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(13, 13, 13)
+                .addComponent(jLabel1)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(nomeTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(nomeTabela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(doacaoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(doadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(estoquePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, 0)
+                                .addComponent(cestaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, 0)
+                                .addComponent(doacaoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cestaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(destinatarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 33, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(deleteButton)
                             .addComponent(updateButton))
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(estoquePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(doadorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(102, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(destinatarioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60))))))
+                        .addGap(14, 14, 14))))
         );
 
         pack();
@@ -607,15 +765,15 @@ public class alterar extends javax.swing.JFrame {
                 try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rsSaida = stmt.executeQuery(sqlUpdate)) {
                     while (rsSaida.next()) {
                         nome_abrigo.setText(rsSaida.getString("nome_abrigo"));
-                        cnpj_abrigo.setText(Integer.toString(rsSaida.getInt("cnpj_abrigo")));
-                        telefone_abrigo.setText(Integer.toString(rsSaida.getInt("telefone_abrigo")));
+                        cnpj_abrigo.setText(Long.toString(rsSaida.getLong("cnpj_abrigo")));
+                        telefone_abrigo.setText(Long.toString(rsSaida.getLong("telefone_abrigo")));
                         email_abrigo.setText(rsSaida.getString("email_abrigo"));
                         quant_pessoas_abrigo.setText(Integer.toString(rsSaida.getInt("quant_pessoas_abrigo")));
                         cep_abrigo.setText(Integer.toString(rsSaida.getInt("cep_abrigo")));
                         log_abrigo.setText(rsSaida.getString("log_abrigo"));
                         num_abrigo.setText(Integer.toString(rsSaida.getInt("num_abrigo")));
                         bairro_abrigo.setText(rsSaida.getString("bairro_abrigo"));
-                        uf_abrigo.setText(rsSaida.getString("uf_abrigo")); 
+                        uf_abrigo.setSelectedItem(rsSaida.getString("uf_abrigo")); 
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
@@ -704,134 +862,180 @@ public class alterar extends javax.swing.JFrame {
 
     private void updateButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateButtonMouseClicked
         int row = table.getSelectedRow();
-        String selection = table.getModel().getValueAt(row, 0).toString();
-        String sqlUpdate = "";
-        switch(getTabela()){
-            case "Abrigo":
-                sqlUpdate = "UPDATE Abrigo SET nome_abrigo = ?, cnpj_abrigo = ?, telefone_abrigo = ?, email_abrigo = ?, quant_pessoas_abrigo = ?,cep_abrigo = ?, log_abrigo = ?, num_abrigo = ?, bairro_abrigo = ?, uf_abrigo = ? WHERE cod_abrigo = " + selection;
-                try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
-                    pstmt.setString(1, nome_abrigo.getText());
-                    pstmt.setLong(2, Long.parseLong(cnpj_abrigo.getText()));
-                    pstmt.setLong(3, Long.parseLong(telefone_abrigo.getText()));
-                    pstmt.setString(4, email_abrigo.getText());
-                    pstmt.setInt(5, Integer.parseInt(quant_pessoas_abrigo.getText()));
-                    pstmt.setInt(6, Integer.parseInt(cep_abrigo.getText()));
-                    pstmt.setString(7, log_doador.getText());
-                    pstmt.setInt(8, Integer.parseInt(num_doador.getText()));
-                    pstmt.setString(9, bairro_doador.getText());
-                    pstmt.setString(10, uf_doador.getSelectedItem().toString());
-                    pstmt.executeUpdate();
-                    select();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            case "Doador":
-                sqlUpdate = "UPDATE Doador SET nome_doador = ?, telefone_doador = ?, email_doador = ?, cep_doador = ?, log_doador = ?, num_doador = ?, bairro_doador = ?, uf_doador = ?, cpf_doador = ?, cnpj_doador = ? WHERE cod_doador = " + selection;
-                try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
-                    pstmt.setString(1, nome_doador.getText());
-                    pstmt.setLong(2, Long.parseLong(telefone_doador.getText()));
-                    pstmt.setString(3, email_doador.getText());
-                    pstmt.setInt(4, Integer.parseInt(cep_doador.getText()));
-                    pstmt.setString(5, log_doador.getText());
-                    pstmt.setInt(6, Integer.parseInt(num_doador.getText()));
-                    pstmt.setString(7, bairro_doador.getText());
-                    pstmt.setString(8, uf_doador.getSelectedItem().toString());
-                    pstmt.setLong(9, Long.parseLong(cpf_doador.getText()));
-                    pstmt.setLong(10, Long.parseLong(cnpj_doador.getText()));
-                    pstmt.executeUpdate();
-                    select();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            case "Estoque":
-                sqlUpdate = "UPDATE Estoque SET mov_estoque = ?, qtd_arroz_estoque = ?, qtd_feijao_estoque = ?, qtd_cafe_estoque = ?, qtd_sal_estoque = ?, qtd_macarrao_estoque = ?, qtd_oleo_estoque = ?, qtd_acucar_estoque = ?, qtd_biscoito_estoque = ?, data_mov_estoque = ? WHERE cod_mov_estoque = " + selection;
-                try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
-                    pstmt.setString(1, mov_estoque.getText());
-                    pstmt.setInt(2, Integer.parseInt(qtd_arroz_estoque.getText()));
-                    pstmt.setInt(3, Integer.parseInt(qtd_feijao_estoque.getText()));
-                    pstmt.setInt(4, Integer.parseInt(qtd_cafe_estoque.getText()));
-                    pstmt.setInt(5, Integer.parseInt(qtd_sal_estoque.getText()));
-                    pstmt.setInt(6, Integer.parseInt(qtd_macarrao_estoque.getText()));
-                    pstmt.setInt(7, Integer.parseInt(qtd_oleo_estoque.getText()));
-                    pstmt.setInt(8, Integer.parseInt(qtd_acucar_estoque.getText()));
-                    pstmt.setInt(9, Integer.parseInt(qtd_biscoito_estoque.getText()));
-                    pstmt.setString(10, data_mov_estoque.getText());
-                    pstmt.executeUpdate();
-                    select();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            case "Cesta":
-                sqlUpdate = "UPDATE Cesta SET qtd_arroz_cesta = ?, qtd_feijao_cesta = ?, qtd_cafe_cesta = ?, qtd_sal_cesta = ?, qtd_macarrao_cesta = ?, qtd_oleo_cesta = ?, qtd_acucar_cesta = ?, qtd_biscoito_cesta = ? WHERE cod_cesta = " + selection;
-                try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
-                    pstmt.setInt(1, Integer.parseInt(qtd_arroz_cesta.getText()));
-                    pstmt.setInt(2, Integer.parseInt(qtd_feijao_cesta.getText()));
-                    pstmt.setInt(3, Integer.parseInt(qtd_cafe_cesta.getText()));
-                    pstmt.setInt(4, Integer.parseInt(qtd_sal_cesta.getText()));
-                    pstmt.setInt(5, Integer.parseInt(qtd_macarrao_cesta.getText()));
-                    pstmt.setInt(6, Integer.parseInt(qtd_oleo_cesta.getText()));
-                    pstmt.setInt(7, Integer.parseInt(qtd_acucar_cesta.getText()));
-                    pstmt.setInt(8, Integer.parseInt(qtd_biscoito_cesta.getText()));
-                    pstmt.executeUpdate();
-                    select();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            case "Doacao":
-                sqlUpdate = "UPDATE Doacao SET cod_doador = ?, cod_cesta = ?, cod_abrigo = ?, data_doacao = ? WHERE cod_doacao = " + selection;
-                try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
-                    pstmt.setInt(1, Integer.parseInt(cod_doador.getText()));
-                    pstmt.setInt(2, Integer.parseInt(cod_cesta.getText()));
-                    pstmt.setInt(3, Integer.parseInt(cod_abrigo.getText()));
-                    pstmt.setString(4,data_doacao.getText());
-                    pstmt.executeUpdate();
-                    select();
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-                break;
-            default:
-                System.out.println("Valor inesperado!");
-                break;
+        if (row != -1) {
+            String selection = table.getModel().getValueAt(row, 0).toString();
+            String sqlUpdate = "";
+            switch (getTabela()) {
+                case "Abrigo":
+                    sqlUpdate = "UPDATE Abrigo SET nome_abrigo = ?, cnpj_abrigo = ?, telefone_abrigo = ?, email_abrigo = ?, quant_pessoas_abrigo = ?,cep_abrigo = ?, log_abrigo = ?, num_abrigo = ?, bairro_abrigo = ?, uf_abrigo = ? WHERE cod_abrigo = " + selection;
+                    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+                        pstmt.setString(1, nome_abrigo.getText());
+                        pstmt.setLong(2, Long.parseLong(cnpj_abrigo.getText().replaceAll("[./-]", "").trim()));
+                        pstmt.setLong(3, Long.parseLong(telefone_abrigo.getText().replaceAll("[()-]","").trim()));
+                        pstmt.setString(4, email_abrigo.getText());
+                        pstmt.setInt(5, Integer.parseInt(quant_pessoas_abrigo.getText()));
+                        pstmt.setInt(6, Integer.parseInt(cep_abrigo.getText().replaceAll("-","").trim()));
+                        pstmt.setString(7, log_abrigo.getText());
+                        pstmt.setInt(8, Integer.parseInt(num_abrigo.getText()));
+                        pstmt.setString(9, bairro_abrigo.getText());
+                        pstmt.setString(10, uf_abrigo.getSelectedItem().toString());
+                        pstmt.executeUpdate();
+                        telaSucesso tela = new telaSucesso("Atualização registrada com sucesso!");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        select();
+                    } catch (SQLException e) {
+                        telaSucesso tela = new telaSucesso("Não foi possível atualizar o registro, tente novamente mais tarde.");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "Doador":
+                    sqlUpdate = "UPDATE Doador SET nome_doador = ?, telefone_doador = ?, email_doador = ?, cep_doador = ?, log_doador = ?, num_doador = ?, bairro_doador = ?, uf_doador = ?, cpf_doador = ?, cnpj_doador = ? WHERE cod_doador = " + selection;
+                    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+                        pstmt.setString(1, nome_doador.getText());
+                        pstmt.setLong(2, Long.parseLong(telefone_doador.getText().replaceAll("[()-]","").trim()));
+                        pstmt.setString(3, email_doador.getText());
+                        pstmt.setInt(4, Integer.parseInt(cep_doador.getText().replaceAll("-","").trim()));
+                        pstmt.setString(5, log_doador.getText());
+                        pstmt.setInt(6, Integer.parseInt(num_doador.getText()));
+                        pstmt.setString(7, bairro_doador.getText());
+                        pstmt.setString(8, uf_doador.getSelectedItem().toString());
+                        if(cpf_doador.isEnabled()){
+                            pstmt.setLong(9, Long.parseLong(cpf_doador.getText().replaceAll("[.-]","")));
+                            pstmt.setLong(10, 0);
+                        } else {
+                            pstmt.setLong(9, 0);
+                            pstmt.setLong(10, Long.parseLong(cnpj_doador.getText().replaceAll("[./-]","")));
+                        }
+                        pstmt.executeUpdate();
+                        telaSucesso tela = new telaSucesso("Atualização registrada com sucesso!");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        select();
+                    } catch (SQLException e) {
+                        telaSucesso tela = new telaSucesso("Não foi possível atualizar o registro, tente novamente mais tarde.");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "Estoque":
+                    sqlUpdate = "UPDATE Estoque SET mov_estoque = ?, qtd_arroz_estoque = ?, qtd_feijao_estoque = ?, qtd_cafe_estoque = ?, qtd_sal_estoque = ?, qtd_macarrao_estoque = ?, qtd_oleo_estoque = ?, qtd_acucar_estoque = ?, qtd_biscoito_estoque = ?, data_mov_estoque = ? WHERE cod_mov_estoque = " + selection;
+                    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+                        pstmt.setString(1, mov_estoque.getText());
+                        pstmt.setInt(2, Integer.parseInt(qtd_arroz_estoque.getText()));
+                        pstmt.setInt(3, Integer.parseInt(qtd_feijao_estoque.getText()));
+                        pstmt.setInt(4, Integer.parseInt(qtd_cafe_estoque.getText()));
+                        pstmt.setInt(5, Integer.parseInt(qtd_sal_estoque.getText()));
+                        pstmt.setInt(6, Integer.parseInt(qtd_macarrao_estoque.getText()));
+                        pstmt.setInt(7, Integer.parseInt(qtd_oleo_estoque.getText()));
+                        pstmt.setInt(8, Integer.parseInt(qtd_acucar_estoque.getText()));
+                        pstmt.setInt(9, Integer.parseInt(qtd_biscoito_estoque.getText()));
+                        pstmt.setString(10, data_mov_estoque.getText());
+                        pstmt.executeUpdate();
+                        telaSucesso tela = new telaSucesso("Atualização registrada com sucesso!");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        select();
+                    } catch (SQLException e) {
+                        telaSucesso tela = new telaSucesso("Não foi possível atualizar o registro, tente novamente mais tarde.");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "Cesta":
+                    sqlUpdate = "UPDATE Cesta SET qtd_arroz_cesta = ?, qtd_feijao_cesta = ?, qtd_cafe_cesta = ?, qtd_sal_cesta = ?, qtd_macarrao_cesta = ?, qtd_oleo_cesta = ?, qtd_acucar_cesta = ?, qtd_biscoito_cesta = ? WHERE cod_cesta = " + selection;
+                    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+                        pstmt.setInt(1, Integer.parseInt(qtd_arroz_cesta.getText()));
+                        pstmt.setInt(2, Integer.parseInt(qtd_feijao_cesta.getText()));
+                        pstmt.setInt(3, Integer.parseInt(qtd_cafe_cesta.getText()));
+                        pstmt.setInt(4, Integer.parseInt(qtd_sal_cesta.getText()));
+                        pstmt.setInt(5, Integer.parseInt(qtd_macarrao_cesta.getText()));
+                        pstmt.setInt(6, Integer.parseInt(qtd_oleo_cesta.getText()));
+                        pstmt.setInt(7, Integer.parseInt(qtd_acucar_cesta.getText()));
+                        pstmt.setInt(8, Integer.parseInt(qtd_biscoito_cesta.getText()));
+                        pstmt.executeUpdate();
+                        telaSucesso tela = new telaSucesso("Atualização registrada com sucesso!");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        select();
+                    } catch (SQLException e) {
+                        telaSucesso tela = new telaSucesso("Não foi possível atualizar o registro, tente novamente mais tarde.");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        System.out.println(e.getMessage());
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "Doacao":
+                    sqlUpdate = "UPDATE Doacao SET cod_doador = ?, cod_cesta = ?, cod_abrigo = ?, data_doacao = ? WHERE cod_doacao = " + selection;
+                    try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlUpdate)) {
+                        pstmt.setInt(1, Integer.parseInt(cod_doador.getText()));
+                        pstmt.setInt(2, Integer.parseInt(cod_cesta.getText()));
+                        pstmt.setInt(3, Integer.parseInt(cod_abrigo.getText()));
+                        pstmt.setString(4, data_doacao.getText());
+                        pstmt.executeUpdate();
+                        telaSucesso tela = new telaSucesso("Atualização registrada com sucesso!");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        select();
+                    } catch (SQLException e) {
+                        telaSucesso tela = new telaSucesso("Não foi possível atualizar o registro, tente novamente mais tarde.");
+                        tela.defineStatus();
+                        tela.setVisible(true);
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                default:
+                    System.out.println("Valor inesperado!");
+                    break;
+            }
         }
     }//GEN-LAST:event_updateButtonMouseClicked
 
     private void deleteButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteButtonMouseClicked
         int row = table.getSelectedRow();
-        String selection = table.getModel().getValueAt(row, 0).toString();
-        String sqlDelete = "";
-        switch(getTabela()){
-            case "Abrigo":
-                sqlDelete = "DELETE FROM Abrigo WHERE cod_abrigo = " + selection;
-                break;
-            case "Doador":
-                sqlDelete = "DELETE FROM Doador WHERE cod_doador = " + selection;
-                break;
-            case "Estoque":
-                sqlDelete = "DELETE FROM Estoque WHERE cod_mov_estoque = " + selection;
-                break;
-            case "Cesta":
-                sqlDelete = "DELETE FROM Cesta WHERE cod_cesta = " + selection;
-                break;
-            case "Doacao":
-                sqlDelete = "DELETE FROM Doacao WHERE cod_doacao = " + selection;
-                break;
-            default:
-                System.out.println("Valor inesperado!");
-                break;
-        }
-        
-        try {
-            Connection conn = this.connect();
-            PreparedStatement stmt = conn.prepareStatement(sqlDelete); 
-            stmt.executeUpdate();
-            select();
-        }catch(Exception e){
-            System.out.println(e.getMessage());
+        if (row != -1) {
+            String selection = table.getModel().getValueAt(row, 0).toString();
+            String sqlDelete = "";
+            switch (getTabela()) {
+                case "Abrigo":
+                    sqlDelete = "DELETE FROM Abrigo WHERE cod_abrigo = " + selection;
+                    break;
+                case "Doador":
+                    sqlDelete = "DELETE FROM Doador WHERE cod_doador = " + selection;
+                    break;
+                case "Estoque":
+                    sqlDelete = "DELETE FROM Estoque WHERE cod_mov_estoque = " + selection;
+                    break;
+                case "Cesta":
+                    sqlDelete = "DELETE FROM Cesta WHERE cod_cesta = " + selection;
+                    break;
+                case "Doacao":
+                    sqlDelete = "DELETE FROM Doacao WHERE cod_doacao = " + selection;
+                    break;
+                default:
+                    System.out.println("Valor inesperado!");
+                    break;
+            }
+
+            try {
+                Connection conn = this.connect();
+                PreparedStatement stmt = conn.prepareStatement(sqlDelete);
+                stmt.executeUpdate();
+                telaSucesso tela = new telaSucesso("Registro deletado com sucesso!");
+                tela.defineStatus();
+                tela.setVisible(true);
+                select();
+            } catch (Exception e) {
+                telaSucesso tela = new telaSucesso("Não foi possível deletar os dados, tente novamente mais tarde.");
+                tela.defineStatus();
+                tela.setVisible(true);
+                System.out.println(e.getMessage());
+            }
         }
     }//GEN-LAST:event_deleteButtonMouseClicked
 
@@ -839,26 +1043,59 @@ public class alterar extends javax.swing.JFrame {
         switch(String.valueOf(nomeTabela.getSelectedItem())){
             case "Destinatário":
                 setTabela("Abrigo");
+                destinatarioPanel.setVisible(true);
+                doadorPanel.setVisible(false);
+                estoquePanel.setVisible(false);
+                cestaPanel.setVisible(false);
+                doacaoPanel.setVisible(false);
                 break;
             case "Doador":
                 setTabela("Doador");
+                destinatarioPanel.setVisible(false);
+                doadorPanel.setVisible(true);
+                estoquePanel.setVisible(false);
+                cestaPanel.setVisible(false);
+                doacaoPanel.setVisible(false);
                 break;
             case "Estoque":
                 setTabela("Estoque");
+                destinatarioPanel.setVisible(false);
+                doadorPanel.setVisible(false);
+                estoquePanel.setVisible(true);
+                cestaPanel.setVisible(false);
+                doacaoPanel.setVisible(false);
                 break;
             case "Cestas":
                 setTabela("Cesta");
+                destinatarioPanel.setVisible(false);
+                doadorPanel.setVisible(false);
+                estoquePanel.setVisible(false);
+                cestaPanel.setVisible(true);
+                doacaoPanel.setVisible(false);
                 break;
             case "Doação":
                 setTabela("Doacao");
+                destinatarioPanel.setVisible(false);
+                doadorPanel.setVisible(false);
+                estoquePanel.setVisible(false);
+                cestaPanel.setVisible(false);
+                doacaoPanel.setVisible(true);
                 break;
             default:
                 System.out.println("Valor inesperado!");
                 break;
         }
-        
         select();
     }//GEN-LAST:event_nomeTabelaItemStateChanged
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        this.setVisible(false);
+        new app().setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -916,7 +1153,7 @@ public class alterar extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField bairro_abrigo;
     private javax.swing.JTextField bairro_doador;
-    private javax.swing.JTextField cep_abrigo;
+    private javax.swing.JFormattedTextField cep_abrigo;
     private javax.swing.JFormattedTextField cep_doador;
     private javax.swing.JPanel cestaPanel;
     private javax.swing.JFormattedTextField cnpj_abrigo;
@@ -934,13 +1171,47 @@ public class alterar extends javax.swing.JFrame {
     private javax.swing.JTextField email_abrigo;
     private javax.swing.JTextField email_doador;
     private javax.swing.JPanel estoquePanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -975,7 +1246,7 @@ public class alterar extends javax.swing.JFrame {
     private javax.swing.JTable table;
     private javax.swing.JFormattedTextField telefone_abrigo;
     private javax.swing.JFormattedTextField telefone_doador;
-    private javax.swing.JTextField uf_abrigo;
+    private javax.swing.JComboBox<String> uf_abrigo;
     private javax.swing.JComboBox<String> uf_doador;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables

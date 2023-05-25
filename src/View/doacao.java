@@ -37,9 +37,9 @@ public class doacao extends javax.swing.JFrame {
         bairroText = new javax.swing.JTextField();
         ufLabel = new javax.swing.JLabel();
         telefoneLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        voltarButton = new javax.swing.JButton();
+        sairButton = new javax.swing.JButton();
+        enviarButton = new javax.swing.JButton();
         emailLabel = new javax.swing.JLabel();
         emailText = new javax.swing.JTextField();
         pessoaComboBox = new javax.swing.JComboBox<>();
@@ -99,24 +99,24 @@ public class doacao extends javax.swing.JFrame {
 
         telefoneLabel.setText("Telefone");
 
-        jButton1.setText("Voltar");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        voltarButton.setText("Voltar");
+        voltarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                voltarButtonMouseClicked(evt);
             }
         });
 
-        jButton2.setText("Sair");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+        sairButton.setText("Sair");
+        sairButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
+                sairButtonMouseClicked(evt);
             }
         });
 
-        jButton3.setText("Enviar");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        enviarButton.setText("Enviar");
+        enviarButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                enviarButtonMouseClicked(evt);
             }
         });
 
@@ -220,7 +220,7 @@ public class doacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(413, 413, 413)
-                        .addComponent(jButton3))
+                        .addComponent(enviarButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(428, 428, 428)
                         .addComponent(retornoLabel)))
@@ -229,7 +229,7 @@ public class doacao extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jButton1)
+                        .addComponent(voltarButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -296,7 +296,7 @@ public class doacao extends javax.swing.JFrame {
                             .addComponent(acucarText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(biscoitoText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(76, 76, 76)))
-                .addComponent(jButton2)
+                .addComponent(sairButton)
                 .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
@@ -304,8 +304,8 @@ public class doacao extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(voltarButton)
+                    .addComponent(sairButton))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(63, 63, 63)
@@ -391,23 +391,23 @@ public class doacao extends javax.swing.JFrame {
                         .addGap(55, 55, 55)))
                 .addComponent(retornoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
+                .addComponent(enviarButton)
                 .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void voltarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_voltarButtonMouseClicked
         this.setVisible(false);
         new app().setVisible(true);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_voltarButtonMouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void sairButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sairButtonMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jButton2MouseClicked
+    }//GEN-LAST:event_sairButtonMouseClicked
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+    private void enviarButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarButtonMouseClicked
         if (emailText.getText().contains("@")){
             Doador doador = new Doador();
             Estoque estoque = new Estoque();
@@ -461,7 +461,7 @@ public class doacao extends javax.swing.JFrame {
             retornoLabel.setText("E-mail inválido. Faça as alterações e tente novamente.");
             retornoLabel.setVisible(true);
         }
-    }//GEN-LAST:event_jButton3MouseClicked
+    }//GEN-LAST:event_enviarButtonMouseClicked
 
     private void cepTextFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cepTextFocusLost
         String cep = (cepText.getText()).replaceAll("-", "");
@@ -515,11 +515,9 @@ public class doacao extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField cpfText;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailText;
+    private javax.swing.JButton enviarButton;
     private javax.swing.JLabel feijaoLabel;
     private javax.swing.JFormattedTextField feijaoText;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel logradouroLabel;
     private javax.swing.JTextField logradouroText;
     private javax.swing.JLabel macarraoLabel;
@@ -532,6 +530,7 @@ public class doacao extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField oleoText;
     private javax.swing.JComboBox<String> pessoaComboBox;
     private javax.swing.JLabel retornoLabel;
+    private javax.swing.JButton sairButton;
     private javax.swing.JLabel salLabel;
     private javax.swing.JFormattedTextField salText;
     private javax.swing.JLabel sobrenomeLabel;
@@ -540,5 +539,6 @@ public class doacao extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField telefoneText;
     private javax.swing.JLabel ufLabel;
     private javax.swing.JComboBox<String> ufText;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }
