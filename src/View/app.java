@@ -16,6 +16,9 @@ public class app extends javax.swing.JFrame {
         relatorioButton = new javax.swing.JButton();
         voltarButton = new javax.swing.JButton();
         alterarButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        cestaButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(690, 450));
@@ -59,29 +62,56 @@ public class app extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Cadastro usuarios");
+
+        jLabel2.setText("Dados");
+
+        cestaButton.setText("Cadastrar Cesta");
+        cestaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cestaButtonMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(voltarButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(doadorButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(destButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(relatorioButton)
-                        .addGap(18, 18, 18)
-                        .addComponent(alterarButton))
+                        .addComponent(voltarButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(tituloLabel)))
-                .addGap(46, 46, 46))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(79, 79, 79)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(destButton)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGap(15, 15, 15)
+                                                .addComponent(doadorButton))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(109, 109, 109)
+                                        .addComponent(jLabel1)))
+                                .addGap(42, 42, 42)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(alterarButton)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(relatorioButton)
+                                        .addGap(11, 11, 11))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addComponent(jLabel2)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                                .addComponent(cestaButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(tituloLabel)))
+                        .addContainerGap(74, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,13 +120,20 @@ public class app extends javax.swing.JFrame {
                 .addComponent(voltarButton)
                 .addGap(72, 72, 72)
                 .addComponent(tituloLabel)
-                .addGap(83, 83, 83)
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(doadorButton)
-                    .addComponent(destButton)
                     .addComponent(relatorioButton)
+                    .addComponent(cestaButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(destButton)
                     .addComponent(alterarButton))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         pack();
@@ -138,6 +175,14 @@ public class app extends javax.swing.JFrame {
         altTela.setVisible(true);
     }//GEN-LAST:event_alterarButtonMouseClicked
 
+    private void cestaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cestaButtonMouseClicked
+        this.setVisible(false);
+        cadCesta cesta = new cadCesta();
+        cesta.pack();
+        cesta.setLocationRelativeTo(null);
+        cesta.setVisible(true);
+    }//GEN-LAST:event_cestaButtonMouseClicked
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -151,8 +196,11 @@ public class app extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterarButton;
+    private javax.swing.JButton cestaButton;
     private javax.swing.JButton destButton;
     private javax.swing.JButton doadorButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JButton relatorioButton;
     private javax.swing.JLabel tituloLabel;
     private javax.swing.JButton voltarButton;
