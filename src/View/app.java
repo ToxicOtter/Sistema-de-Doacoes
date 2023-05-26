@@ -208,7 +208,11 @@ public class app extends javax.swing.JFrame {
     }//GEN-LAST:event_cestaButtonMouseClicked
 
     private void cestaButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cestaButton1MouseClicked
-        // TODO add your handling code here:
+        this.setVisible(false);
+        cadDoacao cesta = new cadDoacao();
+        cesta.pack();
+        cesta.setLocationRelativeTo(null);
+        cesta.setVisible(true);
     }//GEN-LAST:event_cestaButton1MouseClicked
 
     public static void main(String args[]) {

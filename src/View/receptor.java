@@ -43,7 +43,6 @@ public class receptor extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(690, 614));
         setResizable(false);
 
         jButton1.setText("Voltar");
@@ -61,6 +60,11 @@ public class receptor extends javax.swing.JFrame {
         });
 
         submitButton.setText("Enviar");
+        submitButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                submitButtonMouseClicked(evt);
+            }
+        });
         submitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 submitButtonActionPerformed(evt);
@@ -306,7 +310,7 @@ public class receptor extends javax.swing.JFrame {
         
             dtn.setNome(nomeText.getText());
             dtn.setCNPJ(Long.parseLong((cnpjText.getText()).replaceAll("[./-]", "")));
-            dtn.setCep(Integer.parseInt(cepText.getText()));
+            dtn.setCep(Integer.parseInt(cepText.getText().replaceAll("-","")));
             dtn.setLogradouro(logradouroText.getText());
             dtn.setNumero(Integer.parseInt(numeroText.getText()));
             dtn.setBairro(bairroText.getText());
@@ -411,6 +415,10 @@ public class receptor extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_numeroTextKeyTyped
+
+    private void submitButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_submitButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_submitButtonMouseClicked
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

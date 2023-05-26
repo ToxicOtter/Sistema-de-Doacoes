@@ -116,7 +116,7 @@ public class SQLiteConnection {
     public int[] qtdEstoque(){
         int[] qtd = new int[8];
         String sqlQtdEntrada = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Entrada'";
-        String sqlQtdSaida = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Saida'";
+        String sqlQtdSaida = "SELECT SUM(qtd_arroz_estoque) AS arroz, SUM(qtd_feijao_estoque) AS feijao, SUM(qtd_cafe_estoque) AS cafe, SUM(qtd_sal_estoque) AS sal, SUM(qtd_macarrao_estoque) AS macarrao, SUM(qtd_oleo_estoque) AS oleo, SUM(qtd_acucar_estoque) AS acucar, SUM(qtd_biscoito_estoque) AS biscoito FROM Estoque WHERE mov_estoque = 'Saída'";
         
         try (Connection conn = this.connect(); Statement stmt = conn.createStatement(); ResultSet rsEntrada = stmt.executeQuery(sqlQtdEntrada)){
             while(rsEntrada.next()){

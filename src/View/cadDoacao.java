@@ -11,6 +11,16 @@ import java.sql.Statement;
 import java.util.Date;
 
 public class cadDoacao extends javax.swing.JFrame {
+    private String codCesta;
+    
+    public void setCodCesta(String c){
+        codCesta = c;
+    }
+    
+    public String getCodCesta(){
+        return codCesta;
+    }
+    
     public cadDoacao() {
         initComponents();
         selectCesta();
@@ -203,7 +213,7 @@ public class cadDoacao extends javax.swing.JFrame {
     private void tableCestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableCestaMouseClicked
         int rowCesta = tableCesta.getSelectedRow();
         String selectionCesta = tableCesta.getModel().getValueAt(rowCesta,0).toString();
-        
+        setCodCesta(selectionCesta);
         if(rowCesta != -1){
             cestaText.setText(selectionCesta);
         }
@@ -224,8 +234,15 @@ public class cadDoacao extends javax.swing.JFrame {
             jLabel1.setVisible(true);
         } else {
             String sqlDoacao = "INSERT INTO Doacao (cod_cesta,cod_abrigo,data_doacao) VALUES (?,?,?)";
+            String sqlCesta = "UPDATE Cesta SET status = 'Atribuído' WHERE cod_cesta = " + getCodCesta();
             Date d = new Date();
 
+            try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlCesta)) {
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            
             try (Connection conn = this.connect(); PreparedStatement pstmt = conn.prepareStatement(sqlDoacao)) {
                 pstmt.setInt(1, Integer.parseInt(cestaText.getText()));
                 pstmt.setInt(2, Integer.parseInt(abrigoText.getText()));
